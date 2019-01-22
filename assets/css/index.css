@@ -859,3 +859,11 @@ body main .container-choice1 {
 #btnArrow{
   font-size: 135px;
 }
+#joyImg{
+  padding-left: 17%;
+  padding-top: 6%;
+}
+#keyboardImg{
+  padding-left: 28%;
+  padding-top: 13%;
+}
