@@ -1,5 +1,36 @@
 $(document).ready(function(){
 
+    //////saveVisitData
+    $("#saveVisitData").on('click',function(){
+
+        var formData = $("#test-form").serialize();
+        console.log(formData);
+        
+    
+        $.ajax({
+            url: 'https://script.google.com/macros/s/AKfycbzvNIgkdZ7CqnLc1GCCN2vDfI7Uw35N2EGL-cjSW4xBEBjhNyQ/exec',
+            type: 'GET',
+            data: formData,
+            // async: false,
+            success: function (data) {
+               console.log(data)
+               Swal.fire({
+                    position: 'top-end',
+                    type: 'success',
+                    title: 'Successfully saved',
+                    showConfirmButton: false,
+                    timer: 1500
+                });
+        $("#visiter_name").val('');
+        $("#visiter_age").val('');
+         $("#Visite_reason").val('');
+            },
+         
+        });
+    
+       
+    });
+
 
 
     const NewUserdata = JSON.parse(localStorage.getItem('newUser'));
@@ -317,6 +348,10 @@ $('#langChange').click(function(){
         $("#vReason").text('Reason For Visit');
         $("#saveVisitData").text('Save');
 }
+
+
+
+
 });
 
 
@@ -650,23 +685,26 @@ function others6(){
 }
 
 function saveVisitData(){
-    
-    var data ={
-        "name": $("#visiter_name").val(),
-        "age": $("#visiter_age").val(),
-        "reason": $("#Visite_reason").val()
-    }
-    console.log(data);
-    Swal.fire({
-        position: 'top-end',
-        type: 'success',
-        title: 'Successfully saved',
-        showConfirmButton: false,
-        timer: 1500
-      })
+    alert(0)
+    // var data ={
+    //     "name": $("#visiter_name").val(),
+    //     "age": $("#visiter_age").val(),
+    //     "reason": $("#Visite_reason").val()
+    // }
+
+    // console.log(data);
+    // Swal.fire({
+    //     position: 'top-end',
+    //     type: 'success',
+    //     title: 'Successfully saved',
+    //     showConfirmButton: false,
+    //     timer: 1500
+    //   })
+   
+    //   })
 
 }
-/////////////
+/////////////   
 //////settings page
  function changePass(){
    
@@ -1049,4 +1087,4 @@ function rightBtn(){
 function powerOff(){
     $('#powerbtnModal').modal('hide');
 }
-////////////////settings page ends
+////////////////settings page ends 

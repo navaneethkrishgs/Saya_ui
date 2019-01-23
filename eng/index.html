@@ -1215,19 +1215,20 @@
         </header>
         <main class="background-image" id="keyboard">
           <h2 id="visitHead">Reason For Visit</h2>
+        <form id="test-form">
             <div class="row" style="padding-top:24px">
                 <div class="col-2"></div>
                 <div class="col-4">
                   <div class="form-group" id="nameDiv">
                     <label id="vName">Name:</label>
-                    <input type="text" class="form-control jQKeyboard"  id="visiter_name"  placeholder="Name">
+                    <input type="text" class="form-control jQKeyboard" name="Name" id="visiter_name"  placeholder="Name">
                   
                   </div> 
                 </div>
                 <div class="col-4">
                   <div class="form-group" id="ageDiv">
                     <label id="vAge">Age:</label>
-                    <input type="text" class="form-control jQKeyboard"  id="visiter_age"  placeholder="age">
+                    <input type="text" class="form-control jQKeyboard" name="Age" id="visiter_age"  placeholder="age">
                   </div>      
                 </div>
                 <div class="col-2"></div>
@@ -1237,14 +1238,14 @@
                 <div class="col-12">
                 <div class="form-group" id="reason">
                     <label id="vReason">Reason for visiting:</label>
-                    <input  class="form-control jQKeyboard"  id="Visite_reason"   placeholder="Reason for visiting">
+                    <input  type="text"  class="form-control jQKeyboard"  id="Visite_reason"  name="Reason"  placeholder="Reason for visiting">
                 </div> 
             </div>    
             </div>
             <div class="saveBtn">
-                <button type="button" id="saveVisitData" onclick="saveVisitData()" class="btn btn-success">Save</button> 
+                <button type="button" id="saveVisitData"  class="btn btn-success">Save</button> 
             </div>
-               
+        </form> 
              
             <footer>
                               
@@ -1275,7 +1276,7 @@
 <script type="text/javascript" src="../assets/js/index.js"></script>
 <script type="text/javascript" src="../assets/js/mjpegcanvas.min.js"></script>
 
-
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/7.33.1/sweetalert2.min.js"></script>
 
 <script type="text/javascript" src="jQKeyboard.js"></script>
