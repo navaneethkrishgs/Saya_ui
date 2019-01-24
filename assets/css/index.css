@@ -867,3 +867,16 @@ body main .container-choice1 {
   padding-left: 28%;
   padding-top: 13%;
 }
+.lwc-chat-button{
+  right: 119px !important;
+}
+#chatTextBtn{
+  font-size: 22px;
+  color: #fff;
+  position: absolute;
+  top: 130%;
+  left: 78%;
+  /* text-align: center; */
+  font-family: good-times;
+  /* font-weight: normal; */
+}
