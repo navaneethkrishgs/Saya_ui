@@ -63,7 +63,7 @@
      * @param {DOM object} targetInput
      */
     function activateKeypad(targetInput){
-        if($('div.jQKeyboardContainer').length === 0)
+        if($('div.jQKeyboardContainer1').length === 0)
         {
             activeInput.htmlElem = $(targetInput);
             activeInput.initValue = $(targetInput).val();
@@ -79,20 +79,19 @@
      */
     function createKeypadContainer(){
         var container = document.createElement('div');
-        container.setAttribute('class', 'jQKeyboardContainer');
-        container.setAttribute('id', 'jQKeyboardContainer');
-        container.setAttribute('name', 'keyboardContainer' + activeInput.keyboardType);
+        container.setAttribute('class', 'jQKeyboardContainer1');
+        container.setAttribute('id', 'jQKeyboardContainer1');
+        container.setAttribute('name', 'keyboardContainer1' + activeInput.keyboardType);
         
-        $('#keyboard').append(container);
-        // $('#keyboardpass').append(container);
+        $('#keyboardPass1').append(container);
     }
-   
+    
     /*
      * create keyboard
      * @param {Number} set
      */
     function createKeypad(set){
-        $('#jQKeyboardContainer').empty();
+        $('#jQKeyboardContainer1').empty();
         
         var layout = activeInput.keyboardLayout.layout[activeInput.keyboardType][set];
 
@@ -100,9 +99,9 @@
 
             if(layout[i][4]){
                 var row = document.createElement('div');
-                row.setAttribute('class', 'jQKeyboardRow');
-                row.setAttribute('name', 'jQKeyboardRow');
-                $('#jQKeyboardContainer').append(row);
+                row.setAttribute('class', 'jQKeyboardRow1');
+                row.setAttribute('name', 'jQKeyboardRow1');
+                $('#jQKeyboardContainer1').append(row);
             }
 
             var button = document.createElement('button');
@@ -125,7 +124,7 @@
      * remove keyboard from kepad container
      */
     function removeKeypad(){
-        $('#jQKeyboardContainer').remove();
+        $('#jQKeyboardContainer1').remove();
         $(activeInput.htmlElem).removeClass('focus');
     }
     
@@ -215,9 +214,9 @@
         createKeypad(keyboardSet);
         
         if(keyboardSet === 1){
-            $('button[name="key16"').addClass('shift-active');
+            $('button[name="key16"').addClass('shift-active1');
         }else{
-            $('button[name="key16"').removeClass('shift-active');
+            $('button[name="key16"').removeClass('shift-active1');
         }
     }
     

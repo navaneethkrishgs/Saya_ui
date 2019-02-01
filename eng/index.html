@@ -18,16 +18,17 @@
     <!-- <link rel="stylesheet" href="screen.css" media="screen" /> -->
     <!-- <link rel="stylesheet" href="keyboard.css" media="screen" /> -->
 <link href="https://www.jqueryscript.net/css/jquerysctipttop.css" rel="stylesheet" type="text/css">
-   
 
 <link rel="stylesheet" type="text/css" href="jQKeyboard.css">
+<link rel="stylesheet" type="text/css" href="jQKeyboardpass.css">
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/7.33.1/sweetalert2.min.css">
+
    <style>
     .navigation{
             background: url(hdfc-icons-sprite_enter1.png) no-repeat;
             background-repeat: none;
-          } 
+          }
 
     .addNewUser{
         background: url(hdfc-icons-sprite_enter1.png) no-repeat;
@@ -41,8 +42,10 @@
    </style>
 
 <script src="https://swc.cdn.skype.com/sdk/v1/sdk.min.js"></script>
+
+
 </head>
-<body id="body">
+<body id="body" onload="emptyCode();">
 
 
 <!-- start first session-->
@@ -52,40 +55,70 @@
                 <li>
                     <p id="time"></p>
                 </li>
-                <a href="#" data-toggle="modal" data-target="#settingsModalCenter"><li><i id="settingsBtn" class="fa fas  fa-2x fa-cogs"></i></a></li>
+                <a href="#" data-toggle="modal" data-target="#settingsModalCenter" class="setModal"><li><i id="settingsBtn"  class="fa fas  fa-2x fa-cogs"></i></a></li>
                 <a href="#" onclick="nextPage('welcome');"><li><i  id="nextPage" class="fa fa-arrow-right" aria-hidden="true"></i></a></li>
             </ul>
         </header>
-        
-        <main class="background-image" >
+
+        <main class="background-image indexpageClass" >
                 <div class="class-allpage container-index">
                         <div class="container-logo-caption" style="top:40%;">
                             <h2>Hi, I'm SAYA</h2>
 
                             <span class="hr-line"></span>
                             <div id="page-front-img">
-                                
+
                             </div>
+                            
                         </div>
-            
+
 
                     <!-- Modal -->
                     <!-- <div id="settingModalPage"></div> -->
                     <div class="modal fade" id="settingsModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-                    <div class="modal-dialog modal-dialog-centered" role="document">
-                        <div class="modal-content">
+                    <div class="modal-dialog modal-dialog-centered" role="document" >
+                        <div class="modal-content" id="settingsModalContent">
                         <div class="modal-header">
                             <h5 class="modal-title" id="settingsModalCenterTitle">Enter Settings Password</h5>
-                            
+
                         </div>
-                        <div class="modal-body">
-                                <input type="password" class="form-control" id="settingsPass" placeholder="Password" maxlength="4">
+                        <div class="modal-body" >
+                                <form method="get">
+                                        <input type="text" name="code" value="" class="form-control display" id="settingsPass" placeholder="Password" maxlength="4" onfocus="showKeys()">
+                                        <p id="message">Password length is 4 !</p>
+                                        <table id="keypad" cellpadding="5" cellspacing="3">
+                                            <tr>
+                                                <td onclick="addCode('1');">1</td>
+                                                <td onclick="addCode('2');">2</td>
+                                                <td onclick="addCode('3');">3</td>
+                                            </tr>
+                                            <tr>
+                                                <td onclick="addCode('4');">4</td>
+                                                <td onclick="addCode('5');">5</td>
+                                                <td onclick="addCode('6');">6</td>
+                                            </tr>
+                                            <tr>
+                                                <td onclick="addCode('7');">7</td>
+                                                <td onclick="addCode('8');">8</td>
+                                                <td onclick="addCode('9');">9</td>
+                                            </tr>
+                                            <tr>
+                                                <td onclick="backLetters();">Back </td>
+                                                <td onclick="addCode('0');">0</td>
+                                                <td onclick="ClearPassLet();">Clear</td>
+                                            </tr>
+                                        </table>
+                                       
+                                        
+                                        </form>
+                                <!-- <input type="password" class="form-control" id="settingsPass" placeholder="Password" maxlength="4">
                                 <div class="valid">
                                     <p>Please Enter Valid Password.</p>
-                                </div>
+                                </div> -->
+                                
                         </div>
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" id="close" onclick="Modalclose();" data-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-secondary" id="close" onclick="Modalclose('1');" data-dismiss="modal">Close</button>
                             <button type="button" class="btn btn-primary" id="enterBtn" onclick="check_user('welcome')">Ok</button>
                         </div>
                         </div>
@@ -494,27 +527,27 @@
             <header  >
             </header>
             <main class="background-image">
-                    <div class="sett_nav_app_btn" >
+                   <div class="sett_nav_app_btn" >
 
                     
 
                      <div class="row">
                          <div class="col-4" id="test1">
-                            <button type="button" class="btn btn-info" id="Appbtn1" onclick="leftBtn();"><i class="fa fa-arrow-left" id="btnArrow" aria-hidden="true"></i></button>
+                            <button type="button" class="btn btn-info" id="Appbtn1" onclick="turnleft();"><i class="fa fa-arrow-left" id="btnArrow" aria-hidden="true"></i></button>
                          </div>
                          <div class="col-4" id="test2">
                             <div class="upper">
-                                <button type="button" id="Appbtn2" class="btn btn-info" onclick="upBtn();"><i class="fa fa-arrow-up" id="btnArrow" aria-hidden="true"></i></button>
+                                <button type="button" id="Appbtn2" class="btn btn-info" onclick="goforward();"><i class="fa fa-arrow-up" id="btnArrow" aria-hidden="true"></i></button>
                             </div>
                               
                             <div class="down">
-                                <button type="button" id="Appbtn3" class="btn btn-info" onclick="downBtn();"><i class="fa fa-arrow-down" id="btnArrow" aria-hidden="true"></i></button>
+                                <button type="button" id="Appbtn3" class="btn btn-info" onclick="gobackward();"><i class="fa fa-arrow-down" id="btnArrow" aria-hidden="true"></i></button>
                             </div>
                             
                                   
                         </div>
                          <div class="col-4" id="test2">
-                                <button type="button" id="Appbtn4" class="btn btn-info"  onclick="rightBtn();"><i class="fa fa-arrow-right" id="btnArrow" aria-hidden="true"></i></button>
+                                <button type="button" id="Appbtn4" class="btn btn-info"  onclick="turnright();"><i class="fa fa-arrow-right" id="btnArrow" aria-hidden="true"></i></button>
                          </div>
                      </div>
                     </div>
@@ -527,7 +560,7 @@
                 <div class="enterBtn1" id="enterBtn" >
                
                  <div class="centered1"> 
-                        <a href="#" onclick="nextPage('settings_nav_next');"><li><i  id="nextPage" class="fa fa-arrow-left" aria-hidden="true">&nbsp;Back</i></a>
+                        <a href="#" onclick="nextPage('settings_nav_app_next');"><li><i  id="nextPage" class="fa fa-arrow-left" aria-hidden="true">&nbsp;Back</i></a>
                 </div>
                  </div> 
                 
@@ -550,7 +583,7 @@
                 <div class="enterBtn1" id="enterBtn" >
                 
                     <div class="centered1"> 
-                        <a href="#" onclick="nextPage('settings_nav_next');"><li><i  id="nextPage" class="fa fa-arrow-left" aria-hidden="true">&nbsp;Back</i></a>
+                        <a href="#" onclick="nextPage('settings_nav_joystick_next');"><li><i  id="nextPage" class="fa fa-arrow-left" aria-hidden="true">&nbsp;Back</i></a>
                 </div>
                     </div> 
                 
@@ -572,7 +605,7 @@
                     <div class="enterBtn1" id="enterBtn" >
                     
                         <div class="centered1"> 
-                            <a href="#" onclick="nextPage('settings_nav_next');"><li><i  id="nextPage" class="fa fa-arrow-left" aria-hidden="true">&nbsp;Back</i></a>
+                            <a href="#" onclick="nextPage('settings_nav_keyboard_next');"><li><i  id="nextPage" class="fa fa-arrow-left" aria-hidden="true">&nbsp;Back</i></a>
                     </div>
                         </div> 
                     
@@ -655,7 +688,7 @@
 			</div>
 		</div>
 
-                <div class="modal fade" id="settingsModalCenter3" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                <!-- <div class="modal fade" id="settingsModalCenter3" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
                         <div class="modal-dialog modal-dialog-centered" role="document">
                             <div class="modal-content">
                             <div class="modal-header">
@@ -674,7 +707,7 @@
                             </div>
                             </div>
                         </div>
-                        </div>
+                        </div> -->
                        
             <footer>
                     <!-- <div id="footer">
@@ -778,7 +811,7 @@
 
                 <div class="modal fade" id="settingsModalCenter3" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
                         <div class="modal-dialog modal-dialog-centered" role="document">
-                            <div class="modal-content">
+                            <div class="modal-content" >
                             <div class="modal-header">
                                 <h5 class="modal-title" id="settingsModalCenterTitle">Enter Settings Password</h5>
                                 
@@ -1210,10 +1243,10 @@
                     <li>
                         <p id="time1"></p>
                     </li>
-                    
+
                 </ul>
         </header>
-        <main class="background-image" id="keyboard">
+        <main class="background-image otherpageClass" id="keyboard">
           <h2 id="visitHead">Reason For Visit</h2>
         <form id="test-form">
             <div class="row" style="padding-top:24px">
@@ -1228,7 +1261,7 @@
                 <div class="col-4">
                   <div class="form-group" id="ageDiv">
                     <label id="vAge">Age:</label>
-                    <input type="text" class="form-control jQKeyboard" name="Age" id="visiter_age"  placeholder="age">
+                    <input type="text" class="form-control jQKeyboard12" name="Age" id="visiter_age"  placeholder="age">
                   </div>      
                 </div>
                 <div class="col-2"></div>
@@ -1238,7 +1271,7 @@
                 <div class="col-12">
                 <div class="form-group" id="reason">
                     <label id="vReason">Reason for visiting:</label>
-                    <input  type="text"  class="form-control jQKeyboard"  id="Visite_reason"  name="Reason"  placeholder="Reason for visiting">
+                    <input  type="text"  class="form-control jQKeyboard22"  id="Visite_reason"  name="Reason"  placeholder="Reason for visiting">
                 </div> 
             </div>    
             </div>
@@ -1280,6 +1313,9 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/7.33.1/sweetalert2.min.js"></script>
 
 <script type="text/javascript" src="jQKeyboard.js"></script>
+
+
+<!-- <script type="text/javascript" src="jQKeyboardpass.js"></script> -->
 <!-- scripts -->
 
 <!-- <script type="text/javascript" src="jquery.keyboard.js"></script> -->
@@ -1305,11 +1341,12 @@
             ]
         }
         $('input.jQKeyboard').initKeypad({'keyboardLayout': keyboard});
+        $('input.jQKeyboard12').initKeypad({'keyboardLayout': keyboard});
+        $('input.jQKeyboard22').initKeypad({'keyboardLayout': keyboard});
         $('input.jQKeyboard1').initKeypad({'keyboardLayout': keyboard});
+        $('input.jQKeyboard2').initKeypad({'keyboardLayout': keyboard});
     });
 </script>
-
-
 
 
 

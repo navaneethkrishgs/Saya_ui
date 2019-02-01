@@ -1,5 +1,10 @@
 $(document).ready(function(){
-
+//////////////modal
+$(".setModal").click(function(){
+    $("#settingsModalCenter").modal({
+        
+    });
+});
     //////saveVisitData
     $("#saveVisitData").on('click',function(){
 
@@ -53,7 +58,7 @@ var bi = localStorage.getItem('background_image');
 if( bi == '1'){
     $(".background-image").css("background-image", "url('background-pattern4.png')");
   }else if(bi == '2'){
-    localStorage.setItem('background_image',t);
+    // localStorage.setItem('background_image',t);
     $(".background-image").css("background-image", "url('background-pattern.png')");
   }else if(bi == '3'){
     $(".background-image").css("background-image", "url('background-pattern8.png')");
@@ -97,11 +102,12 @@ $("#navigationPage_counter6").hide();
    })
 
    $("#settingsBtn1").on('click',function(){
-    //    alert();
-   
-    
+
    });
-  
+   $("#settingsBtn").on('click',function(){
+
+       // $(".indexpageClass").attr('id','keyboard');
+       });
 ///////////////counter page//////
 $("#settingsBtn3").on('click',function(){
     // alert();
@@ -457,7 +463,7 @@ $('#VideoCallPageDisable').click(function(){
 function check_user(pageSettings){
 
     $('#settingsModalCenter').modal('hide');
-
+    $(".indexpageClass").removeAttr('id');
  if(pageSettings == 'welcome'){
 
     val =  $("#settingsPass").val();
@@ -503,7 +509,10 @@ function check_user(pageSettings){
 
 }
 
-function Modalclose(){
+function Modalclose(i){
+    if( i == '1'){
+       
+    }
       $("#settingsPass").val('');
       $("#settingsPass3").val('');
 }
@@ -590,8 +599,31 @@ function nextPage(nextPage){
     $("#settings_navigation_Page").hide();
     $("#settingsPage").show();
    
-}else if(nextPage == 'settings_nav_next'){
-
+}else if(nextPage == 'settings_nav_app_next'){
+    
+    $("#settings_navigation_Page").show();
+    $("#settings_Nav_App_Page").hide();
+    $("#settings_Nav_Joystick_Page").hide();
+    $("#settings_Nav_Keyboard_Page").hide();
+    
+}
+else if(nextPage == 'settings_nav_joystick_next'){
+    var data_value = new ROSLIB.Message({
+      data : 'false'
+      });
+      joystick_state.publish(data_value);
+      // keyboard_state.publish(data_value);
+    $("#settings_navigation_Page").show();
+    $("#settings_Nav_App_Page").hide();
+    $("#settings_Nav_Joystick_Page").hide();
+    $("#settings_Nav_Keyboard_Page").hide();
+    
+}else if(nextPage == 'settings_nav_keyboard_next'){
+    var data_value = new ROSLIB.Message({
+      data : 'false'
+      });
+      // joystick_state.publish(data_value);
+      keyboard_state.publish(data_value);
     $("#settings_navigation_Page").show();
     $("#settings_Nav_App_Page").hide();
     $("#settings_Nav_Joystick_Page").hide();
@@ -681,7 +713,9 @@ function others6(){
 
     $("#reasonForVisitingPage").hide();
     $("#others6Page").show();
-
+    // $("#jQKeyboardContainer").css('position','relactive');
+    // $("#jQKeyboardContainer").css('bottom','0px');
+   
 }
 
 function saveVisitData(){
@@ -728,8 +762,10 @@ function toChnageTheme(t){
     localStorage.setItem('background_image',t);
     $(".background-image").css("background-image", "url('background-pattern.png')");
   }else if(t == '3'){
+    localStorage.setItem('background_image',t);
     $(".background-image").css("background-image", "url('background-pattern8.png')");
   }else if(t == '4'){
+    localStorage.setItem('background_image',t);
     $(".background-image").css("background-image", "url('background-pattern6.png')");
   }
 
@@ -1054,10 +1090,15 @@ function autonomous(){
 
 }
 function app(){
+
     $("#settings_navigation_Page").hide();
     $("#settings_Nav_App_Page").show();
 }
 function joystick(){
+  var data_value = new ROSLIB.Message({
+      data : 'true'
+  });
+  joystick_state.publish(data_value);
     $("#settings_navigation_Page").hide();
     $("#settings_Nav_Joystick_Page").show();
 }
@@ -1088,3 +1129,35 @@ function powerOff(){
     $('#powerbtnModal').modal('hide');
 }
 ////////////////settings page ends 
+
+///////////////////////password keyboard js
+function showKeys(){
+    document.getElementById("keypad").style.visibility = "visible";
+}
+function addCode(key){
+    var code = document.forms[0].code;
+    if(code.value.length < 4){
+        code.value = code.value + key;
+    }
+    if(code.value.length == 4){
+        document.getElementById("message").style.display = "block";
+        // setTimeout(submitForm,1000);    
+    }
+}
+
+function emptyCode(){
+    document.forms[0].code.value = "";
+}
+function backLetters(){
+
+  var passLetters = $("#settingsPass").val();
+  var newPassLte = passLetters.substring(0, passLetters.length - 1);
+  if(newPassLte == ''){
+    $("#settingsPass").val(' ');
+  }
+//   console.log(newPassLte.length)
+  $("#settingsPass").val(newPassLte)
+}
+function ClearPassLet(){
+  $("#settingsPass").val('');
+}

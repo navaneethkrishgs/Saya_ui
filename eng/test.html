@@ -4,16 +4,94 @@
 <head lang="en">
   <meta charset="UTF-8" />
   <title>jqKeyboard Demo</title>
+  <link rel="stylesheet" href="jquery.keypad.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
   <script src="https://cdn.jsdelivr.net/gh/hawkgs/jqKeyboard/development/build/jqkeyboard.js"></script>
   <script src="https://cdn.jsdelivr.net/gh/hawkgs/jqKeyboard/layouts/jqk.layout.en-bg.js"></script>
   <script src="https://swc.cdn.skype.com/sdk/v1/sdk.min.js"></script>
 
+<style>
+  body {
+    text-align:center; 
+}   
+#keypad {margin:auto; margin-top:20px; visibility: hidden}
+
+#keypad tr td {
+    vertical-align:middle; 
+    text-align:center; 
+    border:1px solid #000000; 
+    font-size:18px; 
+    font-weight:bold; 
+    width:40px; 
+    height:30px; 
+    cursor:pointer; 
+    background-color:#666666; 
+    color:#CCCCCC;}
+#keypad tr td:hover {background-color:#999999; color:#FFFF00;}
+
+.display {
+    width:130px; 
+    margin:10px auto auto auto; 
+}
+#message {
+    text-align:center; 
+    color:#009900; 
+    font-size:14px; 
+    font-weight:bold; 
+    display:none;
+}
+</style>
+<script>
+  function showKeys(){
+    document.getElementById("keypad").style.visibility = "visible";
+}
+function addCode(key){
+    var code = document.forms[0].code;
+    if(code.value.length < 5){
+        code.value = code.value + key;
+    }
+    if(code.value.length == 5){
+        document.getElementById("message").style.display = "block";
+        setTimeout(submitForm,1000);    
+    }
+}
+
+function emptyCode(){
+    document.forms[0].code.value = "";
+}
+
+</script>
+
 </head>
 
-<body>
-  <div class="skype-button bubble" 	data-contact-id="live:mone_516"></div>
-  
+<body onload="emptyCode();">
+  <form method="get">
+<table id="keypad" cellpadding="5" cellspacing="3">
+    <tr>
+        <td onclick="addCode('1');">1</td>
+        <td onclick="addCode('2');">2</td>
+        <td onclick="addCode('3');">3</td>
+    </tr>
+    <tr>
+        <td onclick="addCode('4');">4</td>
+        <td onclick="addCode('5');">5</td>
+        <td onclick="addCode('6');">6</td>
+    </tr>
+    <tr>
+        <td onclick="addCode('7');">7</td>
+        <td onclick="addCode('8');">8</td>
+        <td onclick="addCode('9');">9</td>
+    </tr>
+    <tr>
+        <td></td>
+        <td onclick="addCode('0');">0</td>
+        <td></td>
+    </tr>
+</table>
+<input type="text" name="code" value="" maxlength="4" class="display" readonly="readonly" onfocus="showKeys()"/>
+<p id="message">There is your 5 numbers!</p>
+</form>
+    
 </body>
 </html>
