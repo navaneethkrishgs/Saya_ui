@@ -1,4 +1,39 @@
 $(document).ready(function(){
+
+    // $(".counter1").hide();
+    $("#User").text('Test User');   /////for welcome page
+    $(".sign-in-button").on('click',function(){
+        alert();
+        console.log('login')
+    });
+    $("#saveVisitData").text('Sent');
+    /////////////////for firebase 
+
+
+var config = {
+    apiKey: "AIzaSyDMkgGh69rv-4OuD0iorUNi7wpoRHVSQwU",
+    authDomain: "asimovrobotics-80c9f.firebaseapp.com",
+    databaseURL: "https://asimovrobotics-80c9f.firebaseio.com",
+    projectId: "asimovrobotics-80c9f",
+    storageBucket: "asimovrobotics-80c9f.appspot.com",
+    messagingSenderId: "309600775453"
+  };
+  firebase.initializeApp(config);   
+  //////////////////to generate a user
+//   var userId = 1;
+//   firebase.database().ref('users/' + userId).set({
+//   password: '0007',
+//       },function(error) {
+//           if (error) {
+//             // The write failed...
+//           } else {
+//             // Data saved successfully!
+//           }
+//         });
+
+$("#key13").on('click',function(){
+    alert();
+})
 //////////////modal
 $(".setModal").click(function(){
     $("#settingsModalCenter").modal({
@@ -13,7 +48,7 @@ $(".setModal").click(function(){
         
     
         $.ajax({
-            url: 'https://script.google.com/macros/s/AKfycbzvNIgkdZ7CqnLc1GCCN2vDfI7Uw35N2EGL-cjSW4xBEBjhNyQ/exec',
+            url: 'https://script.google.com/macros/s/AKfycbzlUuVZc08ThqioH2cFtHbKE07er36DKc048wE0GWi80koyD7WS/exec',
             type: 'GET',
             data: formData,
             // async: false,
@@ -56,14 +91,36 @@ $(".setModal").click(function(){
 var bi = localStorage.getItem('background_image');
 
 if( bi == '1'){
+    $("#radio6").attr( 'checked', true )
+    $("#radio7").attr( 'checked', false )
+    $("#radio8").attr( 'checked', false )
+    $("#radio9").attr( 'checked', false )
     $(".background-image").css("background-image", "url('background-pattern4.png')");
+    $(".background-options").css("background-image", "url('background-pattern4.png')");
+    
+    
   }else if(bi == '2'){
+    $("#radio6").attr( 'checked', false )
+    $("#radio7").attr( 'checked', true )
+    $("#radio8").attr( 'checked', false )
+    $("#radio9").attr( 'checked', false )
     // localStorage.setItem('background_image',t);
     $(".background-image").css("background-image", "url('background-pattern.png')");
+    $(".background-options").css("background-image", "url('background-pattern.png')");
   }else if(bi == '3'){
+    $("#radio6").attr( 'checked', false )
+    $("#radio7").attr( 'checked', false )
+    $("#radio8").attr( 'checked', true )
+    $("#radio9").attr( 'checked', false )
     $(".background-image").css("background-image", "url('background-pattern8.png')");
+    $(".background-options").css("background-image", "url('background-pattern8.png')");
   }else if(bi == '4'){
+    $("#radio6").attr( 'checked', false )
+    $("#radio7").attr( 'checked', false )
+    $("#radio8").attr( 'checked', false )
+    $("#radio9").attr( 'checked', true )
     $(".background-image").css("background-image", "url('background-pattern6.png')");
+    $(".background-options").css("background-image", "url('background-pattern6.png')");
   }
 
 
@@ -463,7 +520,7 @@ $('#VideoCallPageDisable').click(function(){
 function check_user(pageSettings){
 
     $('#settingsModalCenter').modal('hide');
-    $(".indexpageClass").removeAttr('id');
+    // $(".indexpageClass").removeAttr('id');
  if(pageSettings == 'welcome'){
 
     val =  $("#settingsPass").val();
@@ -475,15 +532,36 @@ function check_user(pageSettings){
     }else{
       
     //   localStorage.setItem('settingsPassword',val);
-   
-      $("#settingsPass").val('');
-      $("#settingsPass").val('');
-      $("#indexPage").hide();
-      $("#settingsPage").show();
-      $("#body").removeClass("modal-open");
-      $(".modal-backdrop  ").addClass('modal');
+    var userId = 1;
+     firebase.database().ref('/users/' + userId).once('value').then(function(snapshot) {
+    var savedPassword = (snapshot.val() && snapshot.val().password) || 'Anonymous';
+    console.log('saved password'+ ' '+ savedPassword);
+    var enteredPassword =  $("#settingsPass").val();
+    if(savedPassword == enteredPassword){
+        $("#settingsPass").val('');
+        $("#settingsPass").val('');
+        $("#indexPage").hide();
+        $("#settingsPage").show();
+        $("#body").removeClass("modal-open");
+        $(".modal-backdrop  ").addClass('modal');
+        $("#message").hide();
+    }else{
+        $("#message").hide();
+        $("#settingsPass").val('');
+        Swal.fire({
+            type: 'error',
+            title: 'Oops...',
+            text: 'Incorrect Password !',
+            // footer: '<a href>Why do I have this issue?</a>'
+          });
+         
+    }
+    });
+    
+     
       //setTimeout(function(){ $("#welcomePage").hide(); $("#counterPage").show() },2000);
     }
+   
 
  }
 
@@ -533,6 +611,7 @@ function nextPage(nextPage){
       $("#welcomePage").show();
       setTimeout(function(){ $("#welcomePage").hide(); $("#counterPage").show(); },2000);
   }else if(nextPage == "speech"){
+    $(".skype-chat").hide(); /////skype hide
       var speech_value = new ROSLIB.Message({
       data : 'false'
       });
@@ -543,6 +622,8 @@ function nextPage(nextPage){
       $("#counterPage").show();
       $("#videoPage").hide();
       $("#reasonForVisitingPageHeader").hide();
+
+     
       
   }else if(nextPage == "counters"){
 
@@ -696,10 +777,11 @@ function speech(){
 
 // videocall
 function videocall(){
-  
+    $(".skype-chat").show(); //skype show
     $("#counterPage").hide();
     $("#videoPage").show();
     $("#navigationPage").hide();
+   
 }
 
 //////////////reasonForVisiting
@@ -744,9 +826,26 @@ function saveVisitData(){
    
 }
 function changePassW(){
-    $("#exampleModal1").modal('hide');
-    $("#changePassText").val('');
-    var cngPass = $("#changePassText").val();
+
+    // var cngPass = $("#changePassText").val();
+     // Write the new post's data simultaneously in the posts list and the user's post list.
+     var postData = {
+        password: $("#changePassTextVal").val()
+       };
+       var updates = {};
+       var uid = 1;
+       updates['/users/' + uid] = postData;
+       firebase.database().ref().update(updates);
+       $("#exampleModal1").modal('hide');
+       $("#changePassTextVal").val('');
+       $("#message1").hide();
+       Swal.fire({
+        position: 'top-end',
+        type: 'success',
+        title: 'Successfully saved',
+        showConfirmButton: false,
+        timer: 1500
+    });
 }
 function themeChange(){
 
@@ -758,6 +857,7 @@ function toChnageTheme(t){
     localStorage.setItem('background_image',t);
   if( t == '1'){
     $(".background-image").css("background-image", "url('background-pattern4.png')");
+    // $("#radio6").attr('checked');
   }else if(t == '2'){
     localStorage.setItem('background_image',t);
     $(".background-image").css("background-image", "url('background-pattern.png')");
@@ -781,7 +881,7 @@ function toChangeNavigation(){
 function toChangeStatus(){
 
 }
-function toMapDisplay(){
+function toAddImage(){
 
 }
 ////power button
@@ -1130,12 +1230,12 @@ function powerOff(){
 }
 ////////////////settings page ends 
 
-///////////////////////password keyboard js
+///////////////////////password keyboard js 
 function showKeys(){
     document.getElementById("keypad").style.visibility = "visible";
 }
 function addCode(key){
-    var code = document.forms[0].code;
+    var code = $("#form1")[0].code;
     if(code.value.length < 4){
         code.value = code.value + key;
     }
@@ -1146,7 +1246,7 @@ function addCode(key){
 }
 
 function emptyCode(){
-    document.forms[0].code.value = "";
+    $("#form1")[0].code.value = "";
 }
 function backLetters(){
 
@@ -1161,3 +1261,49 @@ function backLetters(){
 function ClearPassLet(){
   $("#settingsPass").val('');
 }
+
+
+///////////////////////password keyboard js  for update
+function showKeysUp(){
+    document.getElementById("keypad1").style.visibility = "visible";
+}
+function addCodeUp(key){
+    var code1 = $("#form2")[0].code1;
+    if(code1.value.length < 4){
+        code1.value = code1.value + key;
+    }
+    if(code1.value.length == 4){
+        document.getElementById("message1").style.display = "block";
+        // setTimeout(submitForm,1000);    
+    }
+}
+
+function emptyCode(){
+    $("#form1")[0].code.value = "";
+    $("#form2")[0].code1.value = "";
+}
+function backLettersUp(){
+
+  var passLetters = $("#changePassTextVal").val();
+  console.log(passLetters)
+  var newPassLte = passLetters.substring(0, passLetters.length - 1);
+  if(newPassLte == ''){
+    $("#changePassTextVal").val(' ');
+  }
+//   console.log(newPassLte.length)
+  $("#changePassTextVal").val(newPassLte)
+}
+function ClearPassLetUp(){
+  $("#changePassTextVal").val('');
+}
+
+////////////////////all page  refresh
+function allPageRefresh(){
+    window.location.reload(true); 
+}
+
+function cameraFeed(){
+
+}
+
+

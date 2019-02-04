@@ -20,6 +20,11 @@ html, body {margin: 0; height: 100%; overflow: hidden}
     font-family: good-times;
     font-weight: normal;
 }
+#changePassTextVal{
+  text-align: center;
+  font-family: good-times;
+  font-weight: normal;
+}
 #settingsPass3{
     text-align: center;
     font-family: good-times;
@@ -577,6 +582,21 @@ body main .container-choice1 {
 #test34{
   margin-left: 288px;
 }
+#test35{
+  margin-left: 288px;
+}
+#test36{
+  margin-left: 288px;
+}
+#test37{
+  margin-left: 288px;
+}
+#test38{
+  margin-left: 288px;
+}
+#test39{
+  margin-left: 288px;
+}
 #textField{
   position: absolute;
   top: 82%;
@@ -874,8 +894,8 @@ body main .container-choice1 {
   font-size: 22px;
   color: #fff;
   position: absolute;
-  top: 130%;
-  left: 78%;
+  top: 81%;
+  left: 0%;
   /* text-align: center; */
   font-family: good-times;
   /* font-weight: normal; */
@@ -926,4 +946,60 @@ body main .container-choice1 {
     /* font-family: good-times;
     font-weight: normal;
     text-align: center; */
+}
+
+
+
+/* password keyboard update  */
+#keypad1 {margin:auto; margin-top:20px; visibility: visible}
+      
+#keypad1 tr td {
+    vertical-align:middle; 
+    text-align:center; 
+    border:1px solid #000000; 
+    font-size:18px; 
+    font-weight:bold; 
+    width: 110px;
+    height: 46px;
+    cursor:pointer; 
+    background-color:rgb(31, 85, 94);
+    color:#CCCCCC;
+    font-family: good-times;
+  font-weight: normal;
+  text-align: center;
+  font-size: 17px;
+  color: #fff;
+  }
+#keypad1 tr td:hover {
+    background-color:#fff;
+    color: #dc3545;
+  }
+
+.display1 {
+    width:100%; 
+    margin:auto auto auto; 
+}
+#message1 {
+    text-align:center; 
+    color:#dc3545;
+    font-size:14px; 
+    font-weight:bold; 
+    display:none;
+    /* font-family: good-times;
+    font-weight: normal;
+    text-align: center; */
+}
+#refreshBtn{
+  font-size: 33px;
+  color: #fff;
+
+}
+#cameraFeedBtn{
+  font-size: 33px;
+  color: #fff;
+  margin-top: 2px;
+}
+.bubble .lwc-chat-button {
+  bottom: 264px !important;
+  left: 9%;
 }

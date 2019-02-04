@@ -41,8 +41,17 @@
 }
    </style>
 
+
+<link rel="stylesheet" type="text/css" href="jquery.onscreenKeyboard.css" />
+
 <script src="https://swc.cdn.skype.com/sdk/v1/sdk.min.js"></script>
 
+
+
+<script src="https://www.gstatic.com/firebasejs/5.8.2/firebase.js"></script>
+<script>
+  
+</script>
 
 </head>
 <body id="body" onload="emptyCode();">
@@ -53,10 +62,16 @@
         <header >
             <ul >
                 <li>
+                    <i class="fa fa-video-camera" aria-hidden="true" id="cameraFeedBtn" onclick="cameraFeed()"></i>
+                </li>
+                <li>
+                    <i class="fa fa-retweet" aria-hidden="true" id="refreshBtn" onclick="allPageRefresh();"></i>
+                </li>
+                <li>
                     <p id="time"></p>
                 </li>
                 <a href="#" data-toggle="modal" data-target="#settingsModalCenter" class="setModal"><li><i id="settingsBtn"  class="fa fas  fa-2x fa-cogs"></i></a></li>
-                <a href="#" onclick="nextPage('welcome');"><li><i  id="nextPage" class="fa fa-arrow-right" aria-hidden="true"></i></a></li>
+                <a href="#" onclick="nextPage('welcome');"><li><i  id="nextPage" class="fa fa-arrow-right indexPageBackBtn" aria-hidden="true"></i></a></li>
             </ul>
         </header>
 
@@ -64,7 +79,10 @@
                 <div class="class-allpage container-index">
                         <div class="container-logo-caption" style="top:40%;">
                             <h2>Hi, I'm SAYA</h2>
-
+                            <!-- <input type="text"  class="form-control" id="testdataFire" placeholder="Password" >
+                            <button onclick="pushFirebsae();">Click</button>
+                            <button onclick="getFirebsae();">get value</button>
+                            <button onclick="UpdateFirebsae();">Update</button> -->
                             <span class="hr-line"></span>
                             <div id="page-front-img">
 
@@ -83,8 +101,8 @@
 
                         </div>
                         <div class="modal-body" >
-                                <form method="get">
-                                        <input type="text" name="code" value="" class="form-control display" id="settingsPass" placeholder="Password" maxlength="4" onfocus="showKeys()">
+                                <form method="get" id="form1">
+                                        <input type="number" name="code" value="" class="form-control display" id="settingsPass" placeholder="Password" maxlength="4" onfocus="showKeys()">
                                         <p id="message">Password length is 4 !</p>
                                         <table id="keypad" cellpadding="5" cellspacing="3">
                                             <tr>
@@ -129,7 +147,7 @@
                 </div>
 
 
-            <div class="slider4342">
+            <!-- <div class="slider4342">
                     <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
                             <div class="carousel-inner">
                             <div class="carousel-item active">
@@ -144,7 +162,7 @@
                             </div>
                             
                     </div>
-            </div>
+            </div> -->
                
 
         </main>
@@ -163,7 +181,7 @@
                         <h1 class="saya">Welcome</h1>
                         
                         <span class="hr-line"></span>
-                        <h2  id="User">test User</h2>
+                        <h2  id="User"></h2>
                     </div>
             
                 </div>
@@ -256,8 +274,8 @@
                         </div>
 
                         <div class="col-6 ">    
-                        <div class="navigation"  id="btn4" onclick="toMapDisplay();">
-                            <h5 id="changepassText5">Map Display</h5>
+                        <div class="navigation"  id="btn4" onclick="toAddImage();">
+                            <h5 id="changepassText5">Add Image</h5>
                         </div>
                         </div>
                 </div>  
@@ -272,7 +290,36 @@
                        
                         </div>
                         <div class="modal-body">
-                                <input type="password" class="form-control" id="changePassText" placeholder="Password" maxlength="4">
+                                <form method="get" id="form2">
+                                        <input type="text" name="code1" value="" class="form-control display1" id="changePassTextVal" placeholder="Password" maxlength="4"  onfocus="showKeysUp()">
+                                        <!-- <input type="text" name="code" value="" class="form-control display" id="settingsPass" placeholder="Password" maxlength="4" onfocus="showKeys()"> -->
+                                        <p id="message1">Password length is 4 !</p>
+                                        <table id="keypad1" cellpadding="5" cellspacing="3">
+                                            <tr>
+                                                <td onclick="addCodeUp('1');">1</td>
+                                                <td onclick="addCodeUp('2');">2</td>
+                                                <td onclick="addCodeUp('3');">3</td>
+                                            </tr>
+                                            <tr>
+                                                <td onclick="addCodeUp('4');">4</td>
+                                                <td onclick="addCodeUp('5');">5</td>
+                                                <td onclick="addCodeUp('6');">6</td>
+                                            </tr>
+                                            <tr>
+                                                <td onclick="addCodeUp('7');">7</td>
+                                                <td onclick="addCodeUp('8');">8</td>
+                                                <td onclick="addCodeUp('9');">9</td>
+                                            </tr>
+                                            <tr>
+                                                <td onclick="backLettersUp();">Back </td>
+                                                <td onclick="addCodeUp('0');">0</td>
+                                                <td onclick="ClearPassLetUp();">Clear</td>
+                                            </tr>
+                                        </table>
+                                       
+                                        
+                                        </form>
+
                         </div>
                         <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -457,7 +504,7 @@
                     <div class="enterBtn1" id="enterBtn" >
                    
                      <div class="centered1"> 
-                            <a href="#" onclick="nextPage('settings');"><li><i  id="nextPage" class="fa fa-arrow-left" aria-hidden="true">&nbsp;Back</i></a>
+                            <a href="#" onclick="nextPage('settings');"><li><i  id="nextPage" class="fa fa-arrow-left settingsPageBackBtn" aria-hidden="true">&nbsp;Back</i></a>
                     </div>
                      </div> 
                     
@@ -514,7 +561,7 @@
                 <div class="enterBtn1" id="enterBtn" >
                
                  <div class="centered1"> 
-                        <a href="#" onclick="nextPage('settings_nav');"><li><i  id="nextPage" class="fa fa-arrow-left" aria-hidden="true">&nbsp;Back</i></a>
+                        <a href="#" onclick="nextPage('settings_nav');"><li><i  id="nextPage" class="fa fa-arrow-left settings_navigation_PageBackBtn" aria-hidden="true">&nbsp;Back</i></a>
                 </div>
                  </div> 
                 
@@ -560,7 +607,7 @@
                 <div class="enterBtn1" id="enterBtn" >
                
                  <div class="centered1"> 
-                        <a href="#" onclick="nextPage('settings_nav_app_next');"><li><i  id="nextPage" class="fa fa-arrow-left" aria-hidden="true">&nbsp;Back</i></a>
+                        <a href="#" onclick="nextPage('settings_nav_app_next');"><li><i  id="nextPage" class="fa fa-arrow-left settings_Nav_App_PageBackBtn" aria-hidden="true">&nbsp;Back</i></a>
                 </div>
                  </div> 
                 
@@ -583,7 +630,7 @@
                 <div class="enterBtn1" id="enterBtn" >
                 
                     <div class="centered1"> 
-                        <a href="#" onclick="nextPage('settings_nav_joystick_next');"><li><i  id="nextPage" class="fa fa-arrow-left" aria-hidden="true">&nbsp;Back</i></a>
+                        <a href="#" onclick="nextPage('settings_nav_joystick_next');"><li><i  id="nextPage" class="fa fa-arrow-left settings_Nav_Joystick_PageBackBtn" aria-hidden="true">&nbsp;Back</i></a>
                 </div>
                     </div> 
                 
@@ -605,7 +652,7 @@
                     <div class="enterBtn1" id="enterBtn" >
                     
                         <div class="centered1"> 
-                            <a href="#" onclick="nextPage('settings_nav_keyboard_next');"><li><i  id="nextPage" class="fa fa-arrow-left" aria-hidden="true">&nbsp;Back</i></a>
+                            <a href="#" onclick="nextPage('settings_nav_keyboard_next');"><li><i  id="nextPage" class="fa fa-arrow-left settings_Nav_Keyboard_PageBackBtn" aria-hidden="true">&nbsp;Back</i></a>
                     </div>
                         </div> 
                     
@@ -644,7 +691,7 @@
 					<i class="icon-options hdfc-sprite one"></i>
 					<div class="option-bg hdfc-sprite">
                        <div id="naviIcon"><img  id="naviIconImag" src="navigationIcon.png"></div>
-						<p class="counter" id="navigation">Navigation</p>
+						<p class="counter" id="navigation ">Navigation</p>
 					</div>
 				</div>
 				<div class="column-two" id="choice_cash_deposit" onclick="reasonForVisiting()">
@@ -721,7 +768,7 @@
                         
                  <div class="centered1"> 
                      
-                            <a href="#" onclick="nextPage('back_home');"><li><i  id="nextPage" class="fa fa-arrow-left" aria-hidden="true">&nbsp;Back</i></a></li>
+                            <a href="#" onclick="nextPage('back_home');"><li><i  id="nextPage" class="fa fa-arrow-left counterPageBackBtn" aria-hidden="true">&nbsp;Back</i></a></li>
                    
                    
 
@@ -837,7 +884,7 @@
                         </main>
                         <div class="enterBtn1" id="enterBtn" >
                        
-                         <div class="centered1"> <a href="#" onclick="nextPage('speech');"><li><i  id="nextPage" class="fa fa-arrow-left" aria-hidden="true">&nbsp;Back</i></a></li></div>
+                         <div class="centered1"> <a href="#" onclick="nextPage('speech');"><li><i  id="nextPage" class="fa fa-arrow-left navigationPageBackBtn" aria-hidden="true">&nbsp;Back</i></a></li></div>
                          </div> 
                         
                         </footer>   
@@ -876,7 +923,7 @@
                         </main>
                         <div class="enterBtn1" id="enterBtn" >
                        
-                         <div class="centered1" id= "back_counter1" > <a href="#" onclick="nextPage('counters');"><li><i  id="nextPage" class="fa fa-arrow-left" aria-hidden="true">&nbsp;Back</i></a></li></div>
+                         <div class="centered1" id= "back_counter1" > <a href="#" onclick="nextPage('counters');"><li><i  id="nextPage" class="fa fa-arrow-left counter1" aria-hidden="true">&nbsp;Back</i></a></li></div>
                          </div> 
                         
                     </footer>  
@@ -903,7 +950,7 @@
                                             
                            </div>
                            
-                           <div class="navigation" id="test34" onclick="inCounterBanigation2();">
+                           <div class="navigation" id="test35" onclick="inCounterBanigation2();">
                                 <h5 id="textField1">Navigation</h5>
                            </div>
                            
@@ -914,7 +961,7 @@
                         </main>
                         <div class="enterBtn1" id="enterBtn" >
                        
-                         <div class="centered1"  id= "back_counter2"> <a href="#" onclick="nextPage('counters');"><li><i  id="nextPage" class="fa fa-arrow-left" aria-hidden="true">&nbsp;Back</i></a></li></div>
+                         <div class="centered1"  id= "back_counter2"> <a href="#" onclick="nextPage('counters');"><li><i  id="nextPage" class="fa fa-arrow-left counter2" aria-hidden="true">&nbsp;Back</i></a></li></div>
                          </div> 
                         
                     </footer>  
@@ -941,7 +988,7 @@
                              
                                             
                            </div>
-                           <div class="navigation" id="test34" onclick="inCounterBanigation3();">
+                           <div class="navigation" id="test36" onclick="inCounterBanigation3();">
                                 <h5 id="textField2">Navigation</h5>
                            </div>
                        </div>
@@ -951,7 +998,7 @@
                         </main>
                         <div class="enterBtn1" id="enterBtn" >
                        
-                         <div class="centered1"  id= "back_counter3"> <a href="#" onclick="nextPage('counters');"><li><i  id="nextPage" class="fa fa-arrow-left" aria-hidden="true">&nbsp;Back</i></a></li></div>
+                         <div class="centered1"  id= "back_counter3"> <a href="#" onclick="nextPage('counters');"><li><i  id="nextPage" class="fa fa-arrow-left counter3" aria-hidden="true">&nbsp;Back</i></a></li></div>
                          </div> 
                         
                     </footer>  
@@ -978,7 +1025,7 @@
                              
                                             
                            </div>
-                           <div class="navigation" id="test34" onclick="inCounterBanigation4();">
+                           <div class="navigation" id="test37" onclick="inCounterBanigation4();">
                                 <h5 id="textField3">Navigation</h5>
                            </div>
                        </div>
@@ -988,7 +1035,7 @@
                         </main>
                         <div class="enterBtn1" id="enterBtn" >
                        
-                         <div class="centered1"  id= "back_counter4"> <a href="#" onclick="nextPage('counters');"><li><i  id="nextPage" class="fa fa-arrow-left" aria-hidden="true">&nbsp;Back</i></a></li></div>
+                         <div class="centered1"  id= "back_counter4"> <a href="#" onclick="nextPage('counters');"><li><i  id="nextPage" class="fa fa-arrow-left counter4" aria-hidden="true">&nbsp;Back</i></a></li></div>
                          </div> 
                         
                     </footer>  
@@ -1015,7 +1062,7 @@
                              
                                             
                            </div>
-                           <div class="navigation" id="test34" onclick="inCounterBanigation5();">
+                           <div class="navigation" id="test38" onclick="inCounterBanigation5();">
                                 <h5 id="textField4">Navigation</h5>
                            </div>
                        </div>
@@ -1025,7 +1072,7 @@
                         </main>
                         <div class="enterBtn1" id="enterBtn" >
                        
-                         <div class="centered1"  id= "back_counter5"> <a href="#" onclick="nextPage('counters');"><li><i  id="nextPage" class="fa fa-arrow-left" aria-hidden="true">&nbsp;Back</i></a></li></div>
+                         <div class="centered1"  id= "back_counter5"> <a href="#" onclick="nextPage('counters');"><li><i  id="nextPage" class="fa fa-arrow-left counter5" aria-hidden="true">&nbsp;Back</i></a></li></div>
                          </div> 
                         
                     </footer>  
@@ -1049,10 +1096,9 @@
                            <h3 class="headW"><center class="head" id="counterNumnerText5">Please Proceed to Counter Number</center></h3>
                            <div class="count">
                               <h1 class="countNo">6</h1>
-                             
-                                            
+
                            </div>
-                           <div class="navigation" id="test34" onclick="inCounterBanigation6();">
+                           <div class="navigation" id="test39" onclick="inCounterBanigation6();">
                                 <h5 id="textField5">Navigation</h5>
                            </div>
                        </div>
@@ -1062,7 +1108,7 @@
                         </main>
                         <div class="enterBtn1" id="enterBtn" >
                        
-                         <div class="centered1"   id= "back_counter6"> <a href="#" onclick="nextPage('counters');"><li><i  id="nextPage" class="fa fa-arrow-left" aria-hidden="true">&nbsp;Back</i></a></li></div>
+                         <div class="centered1"   id= "back_counter6"> <a href="#" onclick="nextPage('counters');"><li><i  id="nextPage" class="fa fa-arrow-left counter6" aria-hidden="true">&nbsp;Back</i></a></li></div>
                          </div> 
                         
                     </footer>  
@@ -1098,7 +1144,7 @@
                 <div class="enterBtn1" id="enterBtn" >
                
                  <div class="centered1"> 
-                    <a href="#" onclick="nextPage('speech');"><li><i  id="nextPage" class="fa fa-arrow-left" aria-hidden="true">&nbsp;Back</i></a>
+                    <a href="#" onclick="nextPage('speech');"><li><i  id="nextPage" class="fa fa-arrow-left speechPageBackBtn" aria-hidden="true">&nbsp;Back</i></a>
                 </div>
                  </div> 
                 
@@ -1121,17 +1167,9 @@
                 
                 <div id="container">
                
-                        <div class="skype-button bubble" 	data-contact-id="live:mone_516"></div>
-                        <!-- <video width="100%"   >
-                                <source src="../assets/videos/test.mp4" type="video/mp4">
-                        </video>
-                  
-                     <div id="navi">
-                        <video width="100%" height="100%" >
-                            <source src="../assets/videos/test.mp4" type="video/mp4" >
-                        </video>
-                     </div> -->
-                     <h1 id="chatTextBtn">Click To Chat</h1>
+                        <div class="skype-button bubble" data-contact-id="live:nirmalthomas"></div>
+                      
+                     <h1 id="chatTextBtn">Click To Start</h1>
                 </div>
                 
                 
@@ -1141,7 +1179,7 @@
                     <div class="enterBtn1" id="enterBtn" >
                    
                      <div class="centered1"> 
-                            <a href="#" onclick="nextPage('speech');"><li><i  id="nextPage" class="fa fa-arrow-left " aria-hidden="true">&nbsp;Back</i></a>
+                            <a href="#" onclick="nextPage('speech');"><li><i  id="nextPage" class="fa fa-arrow-left videoPageBackBtn" aria-hidden="true">&nbsp;Back</i></a>
                     </div>
                      </div> 
                     
@@ -1226,7 +1264,7 @@
             <div class="enterBtn1" id="enterBtn" >
            
              <div class="centered1"> 
-                    <a href="#" onclick="nextPage('reason');"><li><i  id="nextPage" class="fa fa-arrow-left" aria-hidden="true">&nbsp;Back</i></a>
+                    <a href="#" onclick="nextPage('reason');"><li><i  id="nextPage" class="fa fa-arrow-left reasonForVisitingPageBackBtn" aria-hidden="true">&nbsp;Back</i></a>
             </div>
              </div> 
             
@@ -1249,19 +1287,51 @@
         <main class="background-image otherpageClass" id="keyboard">
           <h2 id="visitHead">Reason For Visit</h2>
         <form id="test-form">
-            <div class="row" style="padding-top:24px">
+                <!-- <input type="text" class="onscreenKeyboardTarget" autofocus="true" />
+                <input type="text" class="onscreenKeyboardTarget" autofocus="true" /> -->
+                <div class="row">
+                    <div class="col-2"></div>
+                    <div class="col-4">
+                        <div class="form-group" id="nameDiv">
+                            <label id="vName">Name:</label>
+                            <input type="text" class="form-control onscreenKeyboardTarget" name="Name" id="visiter_name" autofocus="true" placeholder="Name" >
+                        
+                        </div> 
+                    </div>
+                    <div class="col-4">
+                        <div class="form-group" id="ageDiv">
+                            <label id="vAge">Age:</label>
+                            <input type="text" class="form-control onscreenKeyboardTarget" name="Age" id="visiter_age" autofocus="true"  placeholder="age">
+                        </div>      
+                    </div>
+                    <div class="col-2"></div>
+                </div>
+                <div class="row">
+                        <div class="col-12">
+                        <div class="form-group" id="reason">
+                            <label id="vReason">Reason for visiting:</label>
+                            <input  type="text"  class="form-control onscreenKeyboardTarget"  id="Visite_reason"  name="Reason" autofocus="true" placeholder="Reason for visiting">
+                        </div> 
+                    </div>    
+                    </div>
+                    <div class="saveBtn">
+                        <button type="button" id="saveVisitData"  class="btn btn-success">Save</button> 
+                    </div>
+                <div class="onscreenKeyboard"></div>
+
+            <!-- <div class="row" style="padding-top:24px">
                 <div class="col-2"></div>
                 <div class="col-4">
                   <div class="form-group" id="nameDiv">
                     <label id="vName">Name:</label>
-                    <input type="text" class="form-control jQKeyboard" name="Name" id="visiter_name"  placeholder="Name">
+                    <input type="text" class="form-control onscreenKeyboardTarget" name="Name" id="visiter_name" autofocus="true" placeholder="Name" >
                   
                   </div> 
                 </div>
                 <div class="col-4">
                   <div class="form-group" id="ageDiv">
                     <label id="vAge">Age:</label>
-                    <input type="text" class="form-control jQKeyboard12" name="Age" id="visiter_age"  placeholder="age">
+                    <input type="text" class="form-control onscreenKeyboardTarget" name="Age" id="visiter_age" autofocus="true"  placeholder="age">
                   </div>      
                 </div>
                 <div class="col-2"></div>
@@ -1271,13 +1341,14 @@
                 <div class="col-12">
                 <div class="form-group" id="reason">
                     <label id="vReason">Reason for visiting:</label>
-                    <input  type="text"  class="form-control jQKeyboard22"  id="Visite_reason"  name="Reason"  placeholder="Reason for visiting">
+                    <input  type="text"  class="form-control onscreenKeyboardTarget"  id="Visite_reason"  name="Reason" autofocus="true" placeholder="Reason for visiting">
                 </div> 
             </div>    
             </div>
             <div class="saveBtn">
-                <button type="button" id="saveVisitData"  class="btn btn-success">Save</button> 
-            </div>
+                <button type="button" id="saveVisitData"  class="btn btn-success">Sent</button> 
+            </div> -->
+            
         </form> 
              
             <footer>
@@ -1286,7 +1357,7 @@
                 <div class="enterBtn1" id="enterBtn" >
                
                  <div class="centered1"> 
-                     <a href="#" onclick="nextPage('visterPage');"><li><i  id="nextPage" class="fa fa-arrow-left" aria-hidden="true">&nbsp;Back</i></a>
+                     <a href="#" onclick="nextPage('visterPage');"><li><i  id="nextPage" class="fa fa-arrow-left others6PageBackBtn" aria-hidden="true">&nbsp;Back</i></a>
                 </div>
                  </div> 
                 
@@ -1312,14 +1383,14 @@
 <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/7.33.1/sweetalert2.min.js"></script>
 
-<script type="text/javascript" src="jQKeyboard.js"></script>
+<!-- <script type="text/javascript" src="jQKeyboard.js"></script> -->
 
 
 <!-- <script type="text/javascript" src="jQKeyboardpass.js"></script> -->
 <!-- scripts -->
 
 <!-- <script type="text/javascript" src="jquery.keyboard.js"></script> -->
-<script type="text/javascript">
+<!-- <script type="text/javascript">
     $(function(){
         var keyboard = {
             'layout': [
@@ -1346,9 +1417,19 @@
         $('input.jQKeyboard1').initKeypad({'keyboardLayout': keyboard});
         $('input.jQKeyboard2').initKeypad({'keyboardLayout': keyboard});
     });
-</script>
+</script> -->
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/caret/1.0.0/jquery.caret.min.js"></script>
+    <script src="jquery.onscreenKeyboard.js"></script>
+    <script type="text/javascript">
 
+        $(document).ready(function(){
+            $('.onscreenKeyboard').onscreenKeyboard({
+                caps: false
+            });
+        });
+
+    </script>
 
 
 </body>

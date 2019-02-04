@@ -2,7 +2,12 @@
  * poiyee.ho
  */
 (function($){
-
+$("#visiter_name").on('click',function(){
+    // visiter_name('13')
+    closeKeypad = onEnterKeyPressed();
+    // onEnterKeyPressed();
+    
+})
     var keyboardLayout = {
         'layout': [
             // alphanumeric keyboard type
@@ -147,7 +152,11 @@
             stripMoney(currentValue, activeInput.thousandsSep);
         }
         */
-        
+        console.log(keyCode)
+        if(keyCode == '13'){
+            // alert();
+            
+        }
         switch(keyCode){
             case 8:     // backspace key
                 newVal = onDeleteKeyPressed(currentValue, caretPos);
@@ -333,4 +342,8 @@
             }
         }
     }
+    function visiter_name(keyCode){
+        alert(keyCode);
+    }
 })(jQuery);
+
