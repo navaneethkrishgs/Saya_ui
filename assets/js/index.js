@@ -1,5 +1,9 @@
 $(document).ready(function(){
 
+
+
+   
+
     // $(".counter1").hide();
     $("#User").text('Test User');   /////for welcome page
     $(".sign-in-button").on('click',function(){
@@ -131,6 +135,7 @@ $("#settingsPage").hide(); $("#settings_navigation_Page").hide();
 $("#settings_Nav_App_Page").hide();
 $("#settings_Nav_Joystick_Page").hide();
 $("#settings_Nav_Keyboard_Page").hide();
+$("#face_recognition").hide();
 
 $("#counterPage").hide();
 $("#navigationPage").hide();
@@ -679,6 +684,19 @@ function nextPage(nextPage){
 
     $("#settings_navigation_Page").hide();
     $("#settingsPage").show();
+    
+   // $("#faceText").text('Take Snapshot');
+    // $("#canvasId").remove();
+
+   
+}else if(nextPage == 'settings_nav_face'){
+
+    $("#settings_navigation_Page").hide();
+    $("#settingsPage").show();
+   $("#faceText").text('Take Snapshot');
+    $("#canvasId").remove();
+    $("#face_recognition").hide();
+
    
 }else if(nextPage == 'settings_nav_app_next'){
     
@@ -883,6 +901,8 @@ function toChangeStatus(){
 }
 function toAddImage(){
 
+    $("#settingsPage").hide();
+    $("#face_recognition").show();
 }
 ////power button
 function Power_Off_On(){
@@ -1304,6 +1324,12 @@ function allPageRefresh(){
 
 function cameraFeed(){
 
+}
+
+////////////////////////face 
+function addFace(){
+    $("#canvasId").remove();
+    $("#faceText").text('New Snapshot ')
 }
 
 

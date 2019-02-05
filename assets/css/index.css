@@ -1003,3 +1003,62 @@ body main .container-choice1 {
   bottom: 264px !important;
   left: 9%;
 }
+
+
+#videoDiv{
+  /* border: solid 1px #ccc; */
+  padding: 10px;
+  text-align: center;
+}
+#snapBtn{
+  width: 159px;
+  font-size: 12px;
+  /* border: solid 2px #ccc; */
+}
+#output{
+  display: inline-block;
+  top: 8px;
+  position: relative ;
+  padding-left: 49px;
+  /* border: dotted 1px #ccc; */
+  /* border: solid 1px #ccc; */
+  /* padding: 10px; */
+}
+#snapContainer{
+  padding-top: 130px;
+}
+#addFaceBtn{
+  position: absolute;
+  right: 65px;
+  top: 46%;
+}
+#faceText{
+  position: absolute;
+  top: 62%;
+  left: 28%;
+  text-align: center;
+  font-family: good-times;
+  font-weight: normal;
+}
+#addfaceDiv{
+  padding-top: 53%;
+  /* margin-right: -12px; */
+  margin-left: -15px;
+}
+#addfaceText{
+  position: absolute;
+  top: 62%;
+  left: 34%;
+  text-align: center;
+  font-family: good-times;
+  font-weight: normal;
+}
+#faceFormGroup{
+  padding-left: 49px;
+}
+#faceHeadText{
+  text-align: center;
+  font-family: good-times;
+  font-weight: normal;
+  color: #fff;
+}
