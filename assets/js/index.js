@@ -233,27 +233,27 @@ var langChange= localStorage.getItem('langChange');
         $("#navigatio").css('font-size','40px');
         $("#navigatio").css('padding-top','18px');
         //// navigation page
-        $("#counte1").text('त्वचा की देखभाल');
+        $("#counte1").text('याचिका');
         $("#counte1").css('font-size','40px');
         $("#counte1").css('padding-top','6%');
 
-        $("#counte2").text('मेकअप');
+        $("#counte2").text('DIG चैंबर');
         $("#counte2").css('font-size','40px');
         $("#counte2").css('padding-top','6%');
 
-        $("#counte3").text('खुशबू');
+        $("#counte3").text('DIG प्रशासन अनुभाग');
         $("#counte3").css('font-size','40px');
         $("#counte3").css('padding-top','6%');
 
-        $("#counte4").text('बाथटब में शरीर की सफाई');
+        $("#counte4").text('रिसेप्शन');
         $("#counte4").css('font-size','30px');
         $("#counte4").css('padding-top','8%');
 
-        $("#counte5").text('बाल');
+        $("#counte5").text('ऐड ऑन');
         $("#counte5").css('font-size','40px');
         $("#counte5").css('padding-top','6%');
 
-        $("#counte6").text('अंगराग');
+        $("#counte6").text('ऐड ऑन');
         $("#counte6").css('font-size','40px');
         $("#counte6").css('padding-top','6%');
 
@@ -324,27 +324,27 @@ var langChange= localStorage.getItem('langChange');
              $("#videoTex").css('font-size','22px');
              $("#videoTex").css('padding-top','38px');
          /////navigation page
-         $("#counte1").text('Skin Care');
+         $("#counte1").text('Petition');
          $("#counte1").css('font-size','25px');
          $("#counte1").css('padding-top','35px');
 
-         $("#counte2").text('Make Up');
+         $("#counte2").text('DIG Chamber');
          $("#counte2").css('font-size','25px');
          $("#counte2").css('padding-top','35px');
 
-         $("#counte3").text('Fragrance');
-         $("#counte3").css('font-size','25px');
+         $("#counte3").text('DIG Admin section');
+         $("#counte3").css('font-size','23px');
          $("#counte3").css('padding-top','35px');
 
-         $("#counte4").text('Bath & Body');
+         $("#counte4").text('Reception');
          $("#counte4").css('font-size','25px');
          $("#counte4").css('padding-top','35px');
 
-         $("#counte5").text('Hair');
+         $("#counte5").text('Addon');
          $("#counte5").css('font-size','25px');
          $("#counte5").css('padding-top','35px');
 
-         $("#counte6").text('Cosmetic');
+         $("#counte6").text('Addon');
          $("#counte6").css('font-size','25px');
          $("#counte6").css('padding-top','35px');
 
@@ -424,27 +424,27 @@ $('#langChange').click(function(){
         $("#navigatio").css('font-size','40px');
         $("#navigatio").css('padding-top','18px');
         //// navigation page
-        $("#counte1").text('त्वचा की देखभाल');
+        $("#counte1").text('याचिका');
         $("#counte1").css('font-size','40px');
         $("#counte1").css('padding-top','6%');
 
-        $("#counte2").text('मेकअप');
+        $("#counte2").text('DIG चैंबर');
         $("#counte2").css('font-size','40px');
         $("#counte2").css('padding-top','6%');
 
-        $("#counte3").text('खुशबू');
+        $("#counte3").text('DIG प्रशासन अनुभाग');
         $("#counte3").css('font-size','40px');
         $("#counte3").css('padding-top','6%');
 
-        $("#counte4").text('बाथटब में शरीर की सफाई');
+        $("#counte4").text('रिसेप्शन');
         $("#counte4").css('font-size','30px');
         $("#counte4").css('padding-top','8%');
 
-        $("#counte5").text('बाल');
+        $("#counte5").text('ऐड ऑन');
         $("#counte5").css('font-size','40px');
         $("#counte5").css('padding-top','6%');
 
-        $("#counte6").text('अंगराग');
+        $("#counte6").text('ऐड ऑन');
         $("#counte6").css('font-size','40px');
         $("#counte6").css('padding-top','6%');
 
@@ -518,27 +518,27 @@ $('#langChange').click(function(){
          $("#videoTex").css('padding-top','38px');
          
          /////navigation page
-         $("#counte1").text('Skin Care');
+         $("#counte1").text('Petition');
          $("#counte1").css('font-size','25px');
          $("#counte1").css('padding-top','35px');
 
-         $("#counte2").text('Make Up');
+         $("#counte2").text('DIG Chamber');
          $("#counte2").css('font-size','25px');
          $("#counte2").css('padding-top','35px');
 
-         $("#counte3").text('Fragrance');
-         $("#counte3").css('font-size','25px');
+         $("#counte3").text('DIG Admin section');
+         $("#counte3").css('font-size','23px');
          $("#counte3").css('padding-top','35px');
 
-         $("#counte4").text('Bath & Body');
+         $("#counte4").text('Reception');
          $("#counte4").css('font-size','25px');
          $("#counte4").css('padding-top','35px');
 
-         $("#counte5").text('Hair');
+         $("#counte5").text('Addon');
          $("#counte5").css('font-size','25px');
          $("#counte5").css('padding-top','35px');
 
-         $("#counte6").text('Cosmetic');
+         $("#counte6").text('Addon');
          $("#counte6").css('font-size','25px');
          $("#counte6").css('padding-top','35px');
 
