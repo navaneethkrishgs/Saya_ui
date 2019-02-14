@@ -264,7 +264,7 @@
 
                         <div class="col-6 " >
                                 <div class="navigation" id="btn2"  onclick="toChangeNavigation();">
-                                    <h5 id="changepassText3">Navigation</h5>
+                                    <h5 id="changepassText3">Remote control</h5>
                                 </div>
      
                         </div>
@@ -273,13 +273,13 @@
                 <div class="row" id="centerBtn">    
                         <div class="col-6 ">    
                         <div class="navigation" id="btn3" onclick="toChangeStatus();">
-                            <h5 id="changepassText4">Status Report</h5>
+                            <h5 id="changepassText4">Reset</h5>
                         </div>
                         </div>
 
                         <div class="col-6 ">    
                         <div class="navigation"  id="btn4" onclick="toAddImage();">
-                            <h5 id="changepassText5">Add Image</h5>
+                            <h5 id="changepassText5">Addons</h5>
                         </div>
                         </div>
                 </div>  
@@ -528,7 +528,7 @@
                                 <div class="col-6 ">
                                     
                                     <div class="navigation" onclick="autonomous();" >
-                                         <h5 id="changepassText" style="    left: 21%;">Autonomous</h5>
+                                         <h5 id="changepassText" style="    left: 21%;">Addons</h5>
                                     </div>
          
                                 </div>
@@ -735,7 +735,7 @@
                 <li>
                     <p id="time1"></p>
                 </li>
-                <!-- <a href="#" data-toggle="modal" data-target="#settingsModalCenter3"><li><i id="settingsBtn3" class="fa fas  fa-2x fa-cogs"></i></a></li> -->
+                <a  href="#" data-toggle="modal" data-target="#settingsModalCenter3"><li><i id="settingsBtn3" class="fa fas  fa-2x fa-cogs homeSetBtn"></i></a></li>
              
 <!--                  <a href="#" onclick="nextPage('back_home');"><li><i  id="nextPage" class="fa fa-arrow-right" aria-hidden="true"></i></a></li>
  -->            </ul>
@@ -750,28 +750,28 @@
 					<i class="icon-options hdfc-sprite one"></i>
 					<div class="option-bg hdfc-sprite">
                        <div id="naviIcon"><img  id="naviIconImag" src="navigationIcon.png"></div>
-						<p class="counter" id="navigation ">Navigation</p>
+						<p class="counter navigatioS" id="navigatio">Sections</p>
 					</div>
 				</div>
 				<div class="column-two" id="choice_cash_deposit" onclick="reasonForVisiting()">
 					<i class="icon-options hdfc-sprite two"></i>
 					<div class="option-bg hdfc-sprite">
                         <div id="reasonIcon"><img  id="reasonIconImag" src="reason.png"></div>
-						<p class="counter_reason" id="reasonText">Reason for <br/> visiting</p>
+						<p class="counter_reason" id="reasonTex">Visiting Reasons</p>
 					</div>
 				</div>
 				<div class="column-two" id="choice_demat" onclick="speech();">
 					<i class="icon-options hdfc-sprite three"></i>
 					<div class="option-bg hdfc-sprite">
                      <div id="specchIcon"><img  id="specchIconImag" src="speechIcon.png"></div>
-						<p class="counter" id="speechText">Speech</p>
+						<p class="counter" id="speechTex">Chat With Me</p>
 					</div>
 				</div>
 				<div class="column-two" id="choice_forex">
 					<i class="icon-options hdfc-sprite five"></i>
 					<div class="option-bg hdfc-sprite">
                         <div id="others1Icon"><img  id="others1IconImag" src="others1.png"></div>
-						<p class="counter" id="othersText1">Others 1</p>
+						<p class="counter" id="otherText1">Addons</p>
 					</div>
 
 				</div>
@@ -780,22 +780,118 @@
 					<i class="icon-options hdfc-sprite four"></i>
 					<div class="option-bg hdfc-sprite">
                         <div id="videoIcon"><img  id="videoIconImag" src="videocalling.png"></div>
-						<p class="counter" id="videoText">Video Calling</p>
+						<p class="counter" id="videoTex">Call Incharge</p>
 					</div>
 				</div>
 				<div class="column-two" id="choice_others">
 					<i class="icon-options hdfc-sprite six"></i>
 					<div class="option-bg hdfc-sprite">
                         <div id="others2Icon"><img  id="others2IconImag" src="others2.png"></div>
-						<p class="otherscounter" id="othersText2">Others 2</p>
+						<p class="otherscounter" id="otherText2">Addons</p>
 					</div>
 				
 				</div>
 			</div>
 		</div>
 
-              
+        <!-- <div class="modal fade" id="settingsModalCenter3" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content" >
+                <div class="modal-header">
+                    <h5 class="modal-title" id="settingsModalCenterTitle">Enter Settings Password</h5>
+                    
+                </div>
+                <div class="modal-body">
+                      
+                        <div class="valid">
+                            <p>Please Enter Valid Password.</p>
+                        </div>
+                        <form method="get" id="form1">
+                            <input type="number" name="code" value="" class="form-control display" id="settingsPass" placeholder="Password" maxlength="4" onfocus="showKeys()">
+                            <p id="message">Password length is 4 !</p>
+                            <table id="keypad" cellpadding="5" cellspacing="3">
+                                <tr>
+                                    <td onclick="addCode('1');">1</td>
+                                    <td onclick="addCode('2');">2</td>
+                                    <td onclick="addCode('3');">3</td>
+                                </tr>
+                                <tr>
+                                    <td onclick="addCode('4');">4</td>
+                                    <td onclick="addCode('5');">5</td>
+                                    <td onclick="addCode('6');">6</td>
+                                </tr>
+                                <tr>
+                                    <td onclick="addCode('7');">7</td>
+                                    <td onclick="addCode('8');">8</td>
+                                    <td onclick="addCode('9');">9</td>
+                                </tr>
+                                <tr>
+                                    <td onclick="backLetters();">Back </td>
+                                    <td onclick="addCode('0');">0</td>
+                                    <td onclick="ClearPassLet();">Clear</td>
+                                </tr>
+                            </table>
+                           
+                            
+                            </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" id="close" onclick="Modalclose();" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary" id="enterBtn" onclick="check_user('counter')">Ok</button>
+                </div>
+                </div>
+            </div>
+            </div> -->
                        
+            <div class="modal fade" id="settingsModalCenter3" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered" role="document" >
+                    <div class="modal-content" id="settingsModalContent">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="settingsModalCenterTitle">Enter Settings Password</h5>
+
+                    </div>
+                    <div class="modal-body" >
+                            <form method="get" id="form3">
+                                    <input type="number" name="code" value="" class="form-control display" id="settingsPassH" placeholder="Password" maxlength="4" onfocus="showKeys()">
+                                    <p id="messageH">Password length is 4 !</p>
+                                    <table id="keypad" cellpadding="5" cellspacing="3">
+                                        <tr>
+                                            <td onclick="addCodeH('1');">1</td>
+                                            <td onclick="addCodeH('2');">2</td>
+                                            <td onclick="addCodeH('3');">3</td>
+                                        </tr>
+                                        <tr>
+                                            <td onclick="addCodeH('4');">4</td>
+                                            <td onclick="addCodeH('5');">5</td>
+                                            <td onclick="addCodeH('6');">6</td>
+                                        </tr>
+                                        <tr>
+                                            <td onclick="addCodeH('7');">7</td>
+                                            <td onclick="addCodeH('8');">8</td>
+                                            <td onclick="addCodeH('9');">9</td>
+                                        </tr>
+                                        <tr>
+                                            <td onclick="backLettersH();">Back </td>
+                                            <td onclick="addCodeH('0');">0</td>
+                                            <td onclick="ClearPassLetH();">Clear</td>
+                                        </tr>
+                                    </table>
+                                   
+                                    
+                                    </form>
+                            <!-- <input type="password" class="form-control" id="settingsPass" placeholder="Password" maxlength="4">
+                            <div class="valid">
+                                <p>Please Enter Valid Password.</p>
+                            </div> -->
+                            
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" id="close" onclick="Modalclose('1');" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary" id="enterBtn" onclick="check_user('welcome')">Ok</button>
+                    </div>
+                    </div>
+                </div>
+                </div>
             <footer>
                     <!-- <div id="footer">
                         test
@@ -852,28 +948,28 @@
 					<i class="icon-options hdfc-sprite one"></i>
 					<div class="option-bg hdfc-sprite">
                          <div id="counter1Icon"><img  id="counter1IconImag" src="counter1.png"></div>
-						<p class="counter" id="counter1">Counter 1</p>
+						<p class="counter" id="counte1">Skin Care</p>
 					</div>
 				</div>
 				<div class="column-two" id="choice_cash_deposit" onclick="counter4();">
 					<i class="icon-options hdfc-sprite two"></i>
 					<div class="option-bg hdfc-sprite">
                         <div id="counter4Icon"><img  id="counter4IconImag" src="counter4.png"></div>
-						<p class="counter"  id="counter4">Counter 4</p>
+						<p class="counter"  id="counte4">Bath & Body</p>
 					</div>
 				</div>
 				<div class="column-two" id="choice_demat" onclick="counter2();">
 					<i class="icon-options hdfc-sprite three"></i>
 					<div class="option-bg hdfc-sprite">
                         <div id="counter2Icon"><img  id="counter2IconImag" src="counter2.png"></div>
-						<p class="counter"  id="counter2">Counter 2</p>
+						<p class="counter"  id="counte2">Make Up</p>
 					</div>
 				</div>
 				<div class="column-two" id="choice_forex" onclick="counter5();">
 					<i class="icon-options hdfc-sprite five"></i>
 					<div class="option-bg hdfc-sprite">
                         <div id="counter5Icon"><img  id="counter5IconImag" src="counter5.png"></div>
-						<p class="counter"  id="counter5">Counter 5</p>
+						<p class="counter"  id="counte5">Hair</p>
 					</div>
 
 				</div>
@@ -882,40 +978,21 @@
 					<i class="icon-options hdfc-sprite four"></i>
 					<div class="option-bg hdfc-sprite">
                         <div id="counter3Icon"><img  id="counter3IconImag" src="counter3.png"></div>
-						<p class="counter"  id="counter3">Counter 3</p>
+						<p class="counter"  id="counte3">Fragrance</p>
 					</div>
 				</div>
 				<div class="column-two" id="choice_others" onclick="counter6();">
 					<i class="icon-options hdfc-sprite six"></i>
 					<div class="option-bg hdfc-sprite">
                         <div id="counter6Icon"><img  id="counter6IconImag" src="counter6.png"></div>
-						<p class="otherscounter"  id="counter6">Counter 6</p>
+						<p class="otherscounter"  id="counte6">Cosmetic</p>
 					</div>
 				
 				</div>
 			</div>
 		</div>
 
-                <div class="modal fade" id="settingsModalCenter3" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-                        <div class="modal-dialog modal-dialog-centered" role="document">
-                            <div class="modal-content" >
-                            <div class="modal-header">
-                                <h5 class="modal-title" id="settingsModalCenterTitle">Enter Settings Password</h5>
-                                
-                            </div>
-                            <div class="modal-body">
-                                    <input type="password" class="form-control" id="settingsPass3" placeholder="Password" maxlength="4">
-                                    <div class="valid">
-                                        <p>Please Enter Valid Password.</p>
-                                    </div>
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" id="close" onclick="Modalclose();" data-dismiss="modal">Close</button>
-                                <button type="button" class="btn btn-primary" id="enterBtn" onclick="check_user('counter')">Ok</button>
-                            </div>
-                            </div>
-                        </div>
-                        </div>
+                
                         <!-- <ul style="float:left">
                             <a href="#" onclick="nextPage('speech');"><li><i  id="nextPage" class="fa fa-arrow-left" aria-hidden="true">&nbsp;Back</i></a></li>
                         </ul> -->
@@ -924,7 +1001,7 @@
                         </main>
                         <div class="enterBtn1" id="enterBtn" >
                        
-                         <div class="centered1"> <a href="#" onclick="nextPage('speech');"><li><i  id="nextPage" class="fa fa-arrow-left navigationPageBackBtn" aria-hidden="true">&nbsp;Back</i></a></li></div>
+                         <div class="centered1"> <a href="#" onclick="nextPage('main');"><li><i  id="nextPage" class="fa fa-arrow-left navigationPageBackBtn" aria-hidden="true">&nbsp;Back</i></a></li></div>
                          </div> 
                         
                         </footer>   
@@ -1170,7 +1247,7 @@
  
              <div class="class-allpage container-index">
                  <div class="container-logo-caption" >
-                     <h3>Talk to me!!</h3>
+                     <h3 id="talkToMe">Talk to me!!</h3>
                       
                         <div class="google-microphone"><div class="shadow listening"><div class="gn"><div class="mc"></div></div></div></div>
                  </div>
@@ -1219,7 +1296,7 @@
                     <div class="enterBtn1" id="enterBtn" >
                    
                      <div class="centered1"> 
-                            <a href="#" onclick="nextPage('speech');"><li><i  id="nextPage" class="fa fa-arrow-left videoPageBackBtn" aria-hidden="true">&nbsp;Back</i></a>
+                            <a href="#" onclick="nextPage('main');"><li><i  id="nextPage" class="fa fa-arrow-left videoPageBackBtn" aria-hidden="true">&nbsp;Back</i></a>
                     </div>
                      </div> 
                     
@@ -1232,20 +1309,16 @@
 <div id="reasonForVisitingPage">
     <header id="reasonForVisitingPageHeader">
 <ul style="float:left;">
-        <!-- <a href="#" onclick="nextPage('reason');"><li><i  id="nextPage" class="fa fa-arrow-left" aria-hidden="true">&nbsp;Back</i></a></li> -->
+        
 </ul>
             <ul >   
                 <li>
-                    <!-- <div id="player">
-                        <i class="fa fa-volume-down"></i>
-                        <div id="volume"></div>
-                        <i class="fa fa-volume-up"></i>
-                    </div> -->
+                    
                 </li>
                 <li>
                     <p id="time1"></p>
                 </li>
-                <!-- <a href="#" data-toggle="modal" data-target="#settingsModalCenter3"><li><i id="settingsBtn3" class="fa fas  fa-2x fa-cogs"></i></a></li> -->
+              
               
             </ul>
     </header>

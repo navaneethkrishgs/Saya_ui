@@ -98,10 +98,11 @@ if( bi == '1'){
     $("#radio6").attr( 'checked', true )
     $("#radio7").attr( 'checked', false )
     $("#radio8").attr( 'checked', false )
-    $("#radio9").attr( 'checked', false )
+    $("#radio9").attr( 'checked', false ) 
     $(".background-image").css("background-image", "url('background-pattern4.png')");
     $(".background-options").css("background-image", "url('background-pattern4.png')");
-    
+    $(".hdfc-sprite").css("background-image", "url('hdfc-icons-sprite4.png')");
+    $(".navigation").css("background-image", "url('hdfc-icons-sprite_enter1.png')");
     
   }else if(bi == '2'){
     $("#radio6").attr( 'checked', false )
@@ -111,6 +112,8 @@ if( bi == '1'){
     // localStorage.setItem('background_image',t);
     $(".background-image").css("background-image", "url('background-pattern.png')");
     $(".background-options").css("background-image", "url('background-pattern.png')");
+    $(".hdfc-sprite").css("background-image", "url('hdfc-icons-sprite4_blue1.png')");
+    $(".navigation").css("background-image", "url('hdfc-icons-sprite_enter1_blue.png')");
   }else if(bi == '3'){
     $("#radio6").attr( 'checked', false )
     $("#radio7").attr( 'checked', false )
@@ -118,6 +121,8 @@ if( bi == '1'){
     $("#radio9").attr( 'checked', false )
     $(".background-image").css("background-image", "url('background-pattern8.png')");
     $(".background-options").css("background-image", "url('background-pattern8.png')");
+    $(".hdfc-sprite").css("background-image", "url('hdfc-icons-sprite4_green.png')");
+    $(".navigation").css("background-image", "url('hdfc-icons-sprite_enter1_green.png')");
   }else if(bi == '4'){
     $("#radio6").attr( 'checked', false )
     $("#radio7").attr( 'checked', false )
@@ -125,6 +130,8 @@ if( bi == '1'){
     $("#radio9").attr( 'checked', true )
     $(".background-image").css("background-image", "url('background-pattern6.png')");
     $(".background-options").css("background-image", "url('background-pattern6.png')");
+    $(".hdfc-sprite").css("background-image", "url('hdfc-icons-sprite4.png')");
+    $(".navigation").css("background-image", "url('hdfc-icons-sprite_enter1.png')");
   }
 
 
@@ -202,36 +209,71 @@ var langChange= localStorage.getItem('langChange');
         $("#choiceText").text('अपनी पसंद के विकल्प पर टैप करें');
         $("#choiceText1").text('अपनी पसंद के विकल्प पर टैप करें');
         $("#navigation").text('पथ प्रदर्शन')
-        $("#reasonText").text('आने का कारण')
-        $("#speechText").text('भाषण')
-        $("#othersText1").text('अन्य लोग 1')
-        $("#othersText2").text('अन्य लोग 2')
-        $("#videoText").text('वीडियो कॉल करना')
+        $("#reasonTex").text('आने का कारण');
+        $("#reasonTex").css('font-size','40px');
+        $("#reasonTex").css('padding-top','18px');
+
+        $("#speechTex").text('मुझसे बात करो');
+        $("#speechTex").css('font-size','40px');
+        $("#speechTex").css('padding-top','5%');
+
+        $("#otherText1").text('ऐड-ऑन');
+        $("#otherText1").css('font-size','40px');
+        $("#otherText1").css('padding-top','6%');
+
+        $("#otherText2").text('ऐड-ऑन')
+        $("#otherText2").css('font-size','40px');
+        $("#otherText2").css('padding-top','6%');
+
+        $("#videoTex").text('प्रभारी को बुलाओ');
+        $("#videoTex").css('font-size','40px');
+        $("#videoTex").css('padding-top','6%');
+
+        $("#navigatio").text('धारा');
+        $("#navigatio").css('font-size','40px');
+        $("#navigatio").css('padding-top','18px');
         //// navigation page
-        $("#counter1").text('काउंटर 1');
-        $("#counter2").text('काउंटर 2');
-        $("#counter3").text('काउंटर 3');
-        $("#counter4").text('काउंटर 4');
-        $("#counter5").text('काउंटर 5');
-        $("#counter6").text('काउंटर 6');
+        $("#counte1").text('त्वचा की देखभाल');
+        $("#counte1").css('font-size','40px');
+        $("#counte1").css('padding-top','6%');
+
+        $("#counte2").text('मेकअप');
+        $("#counte2").css('font-size','40px');
+        $("#counte2").css('padding-top','6%');
+
+        $("#counte3").text('खुशबू');
+        $("#counte3").css('font-size','40px');
+        $("#counte3").css('padding-top','6%');
+
+        $("#counte4").text('बाथटब में शरीर की सफाई');
+        $("#counte4").css('font-size','30px');
+        $("#counte4").css('padding-top','8%');
+
+        $("#counte5").text('बाल');
+        $("#counte5").css('font-size','40px');
+        $("#counte5").css('padding-top','6%');
+
+        $("#counte6").text('अंगराग');
+        $("#counte6").css('font-size','40px');
+        $("#counte6").css('padding-top','6%');
 
         //////counter number session
         $("#counterNumnerText").text('कृपया काउंटर नंबर पर आगे बढ़ें')
-       $("#textField").text('पथ प्रदर्शन');
+       $("#textField").text('काउंटर 1');
        $("#counterNumnerText1").text('कृपया काउंटर नंबर पर आगे बढ़ें')
-       $("#textField1").text('पथ प्रदर्शन');
+       $("#textField1").text('काउंटर 2');
 
        $("#counterNumnerText2").text('कृपया काउंटर नंबर पर आगे बढ़ें')
-       $("#textField2").text('पथ प्रदर्शन');
+       $("#textField2").text('काउंटर 3');
 
        $("#counterNumnerText3").text('कृपया काउंटर नंबर पर आगे बढ़ें')
-       $("#textField3").text('पथ प्रदर्शन');
+       $("#textField3").text('काउंटर 4');
 
        $("#counterNumnerText4").text('कृपया काउंटर नंबर पर आगे बढ़ें')
-       $("#textField4").text('पथ प्रदर्शन');
+       $("#textField4").text('काउंटर 5');
        
        $("#counterNumnerText5").text('कृपया काउंटर नंबर पर आगे बढ़ें')
-       $("#textField5").text('पथ प्रदर्शन');
+       $("#textField5").text('काउंटर 6');
 
        /////reasonForVisitingPage
        $("#othersChoise").text('अपनी पसंद के विकल्प पर टैप करें');
@@ -247,45 +289,84 @@ var langChange= localStorage.getItem('langChange');
        $("#vAge").text('आयु');
        $("#vReason").text('आने का कारण');
        $("#saveVisitData").text('बचाना');
-           
+        
+       ////speechPage page
+       $("#talkToMe").text('मुझसे बात करो!!');
+       $("#chatTextBtn").text('शुरू करने के लिए क्लिक करें');
         }else{
           
             $("#langChange").attr('checked', false);
              ///Counter page
-         $("#choiceText").text('Tap on the Option of your Choice');
-         $("#choiceText1").text('Tap on the Option of your Choice');
-         $("#navigation").text('Navigation')
-         $("#reasonText").text('Reason for visiting')
-         $("#speechText").text('Speech')
-         $("#othersText1").text('Others 1')
-         $("#othersText2").text('Others 2')
-         $("#videoText").text('Video Calling')
+             $("#choiceText").text('Tap on the Option of your Choice');
+             $("#choiceText1").text('Tap on the Option of your Choice');
+             $("#navigation").text('Navigation')
+             $("#navigatio").text('Sections');
+             $("#navigatio").css('font-size','22px');
+             $("#navigatio").css('padding-top','38px');
+    
+             $("#reasonTex").text('Visiting  Reasons');
+             $("#reasonTex").css('font-size','22px');
+             $("#reasonTex").css('padding-top','38px');
+    
+             $("#speechTex").text('Chat With Me');
+             $("#speechTex").css('font-size','22px');
+             $("#speechTex").css('padding-top','38px');
+    
+             $("#otherText1").text('Addons');
+             $("#otherText1").css('font-size','22px');
+             $("#otherText1").css('padding-top','38px');
+    
+             $("#otherText2").text('Addons');
+             $("#otherText2").css('font-size','22px');
+             $("#otherText2").css('padding-top','38px');
+    
+             $("#videoTex").text('Call Incharge');
+             $("#videoTex").css('font-size','22px');
+             $("#videoTex").css('padding-top','38px');
          /////navigation page
-         $("#counter1").text('Counter 1');
-         $("#counter2").text('Counter 2');
-         $("#counter3").text('Counter 3');
-         $("#counter4").text('Counter 4');
-         $("#counter5").text('Counter 5');
-         $("#counter6").text('Counter 6');
+         $("#counte1").text('Skin Care');
+         $("#counte1").css('font-size','25px');
+         $("#counte1").css('padding-top','35px');
+
+         $("#counte2").text('Make Up');
+         $("#counte2").css('font-size','25px');
+         $("#counte2").css('padding-top','35px');
+
+         $("#counte3").text('Fragrance');
+         $("#counte3").css('font-size','25px');
+         $("#counte3").css('padding-top','35px');
+
+         $("#counte4").text('Bath & Body');
+         $("#counte4").css('font-size','25px');
+         $("#counte4").css('padding-top','35px');
+
+         $("#counte5").text('Hair');
+         $("#counte5").css('font-size','25px');
+         $("#counte5").css('padding-top','35px');
+
+         $("#counte6").text('Cosmetic');
+         $("#counte6").css('font-size','25px');
+         $("#counte6").css('padding-top','35px');
+
 
                  //////counter number session
         $("#counterNumnerText").text('Please Proceed to Counter Number')
-        $("#textField").text('Navigation');
+        $("#textField").text('Counter 1');
         
         $("#counterNumnerText1").text('Please Proceed to Counter Number')
-        $("#textField1").text('Navigation');
+        $("#textField1").text('Counter 2');
 
         $("#counterNumnerText2").text('Please Proceed to Counter Number')
-        $("#textField2").text('Navigation');
+        $("#textField2").text('Counter 3');
 
         $("#counterNumnerText3").text('Please Proceed to Counter Number')
-        $("#textField3").text('Navigation');
+        $("#textField3").text('Counter 4');
 
         $("#counterNumnerText4").text('Please Proceed to Counter Number')
-        $("#textField4").text('Navigation');
+        $("#textField4").text('Counter 5');
 
         $("#counterNumnerText5").text('Please Proceed to Counter Number')
-        $("#textField5").text('Navigation');
+        $("#textField5").text('Counter 6');
 
                /////reasonForVisitingPage
        $("#othersChoise").text('Tap on the Option of your Choice');
@@ -302,6 +383,11 @@ var langChange= localStorage.getItem('langChange');
         $("#vAge").text('Age');
         $("#vReason").text('Reason For Visit');
         $("#saveVisitData").text('Save');
+
+        ////others page
+        $("#chatTextBtn").text('Click To Start');
+        $("#talkToMe").text('Talk to me!!');
+
         }
 
 
@@ -314,36 +400,71 @@ $('#langChange').click(function(){
         $("#choiceText").text('अपनी पसंद के विकल्प पर टैप करें');
         $("#choiceText1").text('अपनी पसंद के विकल्प पर टैप करें');
         $("#navigation").text('पथ प्रदर्शन')
-        $("#reasonText").text('आने का कारण')
-        $("#speechText").text('भाषण')
-        $("#othersText1").text('अन्य लोग 1')
-        $("#othersText2").text('अन्य लोग 2')
-        $("#videoText").text('वीडियो कॉल करना')
+        $("#reasonTex").text('आने का कारण');
+        $("#reasonTex").css('font-size','40px');
+        $("#reasonTex").css('padding-top','18px');
+
+        $("#speechTex").text('मुझसे बात करो');
+        $("#speechTex").css('font-size','40px');
+        $("#speechTex").css('padding-top','5%');
+
+        $("#otherText1").text('ऐड-ऑन');
+        $("#otherText1").css('font-size','40px');
+        $("#otherText1").css('padding-top','6%');
+
+        $("#otherText2").text('ऐड-ऑन')
+        $("#otherText2").css('font-size','40px');
+        $("#otherText2").css('padding-top','6%');
+
+        $("#videoTex").text('प्रभारी को बुलाओ');
+        $("#videoTex").css('font-size','40px');
+        $("#videoTex").css('padding-top','6%');
+
+        $("#navigatio").text('धारा');
+        $("#navigatio").css('font-size','40px');
+        $("#navigatio").css('padding-top','18px');
         //// navigation page
-        $("#counter1").text('काउंटर 1');
-        $("#counter2").text('काउंटर 2');
-        $("#counter3").text('काउंटर 3');
-        $("#counter4").text('काउंटर 4');
-        $("#counter5").text('काउंटर 5');
-        $("#counter6").text('काउंटर 6');
+        $("#counte1").text('त्वचा की देखभाल');
+        $("#counte1").css('font-size','40px');
+        $("#counte1").css('padding-top','6%');
+
+        $("#counte2").text('मेकअप');
+        $("#counte2").css('font-size','40px');
+        $("#counte2").css('padding-top','6%');
+
+        $("#counte3").text('खुशबू');
+        $("#counte3").css('font-size','40px');
+        $("#counte3").css('padding-top','6%');
+
+        $("#counte4").text('बाथटब में शरीर की सफाई');
+        $("#counte4").css('font-size','30px');
+        $("#counte4").css('padding-top','8%');
+
+        $("#counte5").text('बाल');
+        $("#counte5").css('font-size','40px');
+        $("#counte5").css('padding-top','6%');
+
+        $("#counte6").text('अंगराग');
+        $("#counte6").css('font-size','40px');
+        $("#counte6").css('padding-top','6%');
 
         //////counter number session
         $("#counterNumnerText").text('कृपया काउंटर नंबर पर आगे बढ़ें')
-       $("#textField").text('पथ प्रदर्शन');
-       $("#counterNumnerText1").text('कृपया काउंटर नंबर पर आगे बढ़ें')
-       $("#textField1").text('पथ प्रदर्शन');
-
-       $("#counterNumnerText2").text('कृपया काउंटर नंबर पर आगे बढ़ें')
-       $("#textField2").text('पथ प्रदर्शन');
-
-       $("#counterNumnerText3").text('कृपया काउंटर नंबर पर आगे बढ़ें')
-       $("#textField3").text('पथ प्रदर्शन');
-
-       $("#counterNumnerText4").text('कृपया काउंटर नंबर पर आगे बढ़ें')
-       $("#textField4").text('पथ प्रदर्शन');
-       
-       $("#counterNumnerText5").text('कृपया काउंटर नंबर पर आगे बढ़ें')
-       $("#textField5").text('पथ प्रदर्शन');
+        $("#textField").text('काउंटर 1');
+        $("#counterNumnerText1").text('कृपया काउंटर नंबर पर आगे बढ़ें')
+        $("#textField1").text('काउंटर 2');
+ 
+        $("#counterNumnerText2").text('कृपया काउंटर नंबर पर आगे बढ़ें')
+        $("#textField2").text('काउंटर 3');
+ 
+        $("#counterNumnerText3").text('कृपया काउंटर नंबर पर आगे बढ़ें')
+        $("#textField3").text('काउंटर 4');
+ 
+        $("#counterNumnerText4").text('कृपया काउंटर नंबर पर आगे बढ़ें')
+        $("#textField4").text('काउंटर 5');
+        
+        $("#counterNumnerText5").text('कृपया काउंटर नंबर पर आगे बढ़ें')
+        $("#textField5").text('काउंटर 6');
 
        /////reasonForVisitingPage
        $("#othersChoise").text('अपनी पसंद के विकल्प पर टैप करें');
@@ -359,6 +480,10 @@ $('#langChange').click(function(){
        $("#vAge").text('आयु');
        $("#vReason").text('आने का कारण');
        $("#saveVisitData").text('बचाना');
+
+       ////speechPage page
+       $("#talkToMe").text('मुझसे बात करो!!');
+       $("#chatTextBtn").text('शुरू करने के लिए क्लिक करें');
     } 
     else if($(this).prop("checked") == false){
 
@@ -368,37 +493,73 @@ $('#langChange').click(function(){
          $("#choiceText").text('Tap on the Option of your Choice');
          $("#choiceText1").text('Tap on the Option of your Choice');
          $("#navigation").text('Navigation')
-         $("#reasonText").text('Reason for visiting')
-         $("#speechText").text('Speech')
-         $("#othersText1").text('Others 1')
-         $("#othersText2").text('Others 2')
-         $("#videoText").text('Video Calling')
+         $("#navigatio").text('Sections');
+         $("#navigatio").css('font-size','22px');
+         $("#navigatio").css('padding-top','38px');
+
+         $("#reasonTex").text('Visiting  Reasons');
+         $("#reasonTex").css('font-size','22px');
+         $("#reasonTex").css('padding-top','38px');
+
+         $("#speechTex").text('Chat With Me');
+         $("#speechTex").css('font-size','22px');
+         $("#speechTex").css('padding-top','38px');
+
+         $("#otherText1").text('Addons');
+         $("#otherText1").css('font-size','22px');
+         $("#otherText1").css('padding-top','38px');
+
+         $("#otherText2").text('Addons');
+         $("#otherText2").css('font-size','22px');
+         $("#otherText2").css('padding-top','38px');
+
+         $("#videoTex").text('Call Incharge');
+         $("#videoTex").css('font-size','22px');
+         $("#videoTex").css('padding-top','38px');
+         
          /////navigation page
-         $("#counter1").text('Counter 1');
-         $("#counter2").text('Counter 2');
-         $("#counter3").text('Counter 3');
-         $("#counter4").text('Counter 4');
-         $("#counter5").text('Counter 5');
-         $("#counter6").text('Counter 6');
+         $("#counte1").text('Skin Care');
+         $("#counte1").css('font-size','25px');
+         $("#counte1").css('padding-top','35px');
+
+         $("#counte2").text('Make Up');
+         $("#counte2").css('font-size','25px');
+         $("#counte2").css('padding-top','35px');
+
+         $("#counte3").text('Fragrance');
+         $("#counte3").css('font-size','25px');
+         $("#counte3").css('padding-top','35px');
+
+         $("#counte4").text('Bath & Body');
+         $("#counte4").css('font-size','25px');
+         $("#counte4").css('padding-top','35px');
+
+         $("#counte5").text('Hair');
+         $("#counte5").css('font-size','25px');
+         $("#counte5").css('padding-top','35px');
+
+         $("#counte6").text('Cosmetic');
+         $("#counte6").css('font-size','25px');
+         $("#counte6").css('padding-top','35px');
 
                  //////counter number session
-        $("#counterNumnerText").text('Please Proceed to Counter Number')
-        $("#textField").text('Navigation');
-        
-        $("#counterNumnerText1").text('Please Proceed to Counter Number')
-        $("#textField1").text('Navigation');
-
-        $("#counterNumnerText2").text('Please Proceed to Counter Number')
-        $("#textField2").text('Navigation');
-
-        $("#counterNumnerText3").text('Please Proceed to Counter Number')
-        $("#textField3").text('Navigation');
-
-        $("#counterNumnerText4").text('Please Proceed to Counter Number')
-        $("#textField4").text('Navigation');
-
-        $("#counterNumnerText5").text('Please Proceed to Counter Number')
-        $("#textField5").text('Navigation');
+                 $("#counterNumnerText").text('Please Proceed to Counter Number')
+                 $("#textField").text('Counter 1');
+                 
+                 $("#counterNumnerText1").text('Please Proceed to Counter Number')
+                 $("#textField1").text('Counter 2');
+         
+                 $("#counterNumnerText2").text('Please Proceed to Counter Number')
+                 $("#textField2").text('Counter 3');
+         
+                 $("#counterNumnerText3").text('Please Proceed to Counter Number')
+                 $("#textField3").text('Counter 4');
+         
+                 $("#counterNumnerText4").text('Please Proceed to Counter Number')
+                 $("#textField4").text('Counter 5');
+         
+                 $("#counterNumnerText5").text('Please Proceed to Counter Number')
+                 $("#textField5").text('Counter 6');
 
                /////reasonForVisitingPage
        $("#othersChoise").text('Tap on the Option of your Choice');
@@ -415,6 +576,11 @@ $('#langChange').click(function(){
         $("#vAge").text('Age');
         $("#vReason").text('Reason For Visit');
         $("#saveVisitData").text('Save');
+
+
+        ////others page
+        $("#chatTextBtn").text('Click To Start');
+        $("#talkToMe").text('Talk to me!!')
 }
 
 
@@ -529,7 +695,8 @@ function check_user(pageSettings){
  if(pageSettings == 'welcome'){
 
     val =  $("#settingsPass").val();
-   
+    val1 = $("#settingsPassH").val();
+    console.log(val1);
     if(val == ''){
       $(".valid").show();
   
@@ -567,6 +734,42 @@ function check_user(pageSettings){
       //setTimeout(function(){ $("#welcomePage").hide(); $("#counterPage").show() },2000);
     }
    
+    /////////////for home page
+    if(val1 == ''){
+        $(".valid").show();
+    
+       setTimeout(function(){$(".valid").hide(); },2000);
+      }else{
+        
+      //   localStorage.setItem('settingsPassword',val);
+      var userId = 1;
+       firebase.database().ref('/users/' + userId).once('value').then(function(snapshot) {
+      var savedPassword = (snapshot.val() && snapshot.val().password) || 'Anonymous';
+      console.log('saved password'+ ' '+ savedPassword);
+      var enteredPassword =  $("#settingsPassH").val();
+      if(savedPassword == enteredPassword){
+          $("#settingsPassH").val('');
+          $("#settingsPassH").val('');
+          $("#indexPage").hide();
+          $("#settingsPage").show();
+          $("#body").removeClass("modal-open");
+          $(".modal-backdrop  ").addClass('modal');
+          $("#messageH").hide();
+          $(".homeSetBtn").hide();
+          $("#counterPage").hide();
+      }else{
+          $("#messageH").hide();
+          $(".homeSetBtn").hide();
+          $("#settingsPassH").val('');
+        //   $("#counterPage").hide();
+          Swal.fire({
+              type: 'error',
+              title: 'Oops...',
+              text: 'Incorrect Password !',
+            });
+      }
+      });
+      }
 
  }
 
@@ -630,7 +833,21 @@ function nextPage(nextPage){
 
      
       
-  }else if(nextPage == "counters"){
+  }else if(nextPage == "main"){
+    $(".skype-chat").hide(); /////skype hide
+      
+     $("#navigationPage").hide();
+     $("#navigationHeader").hide();
+      $("#speechPage").hide();
+      $("#counterPage").show();
+      $("#videoPage").hide();
+      $("#reasonForVisitingPageHeader").hide();
+
+     
+      
+  }
+
+  else if(nextPage == "counters"){
 
       $("#navigationPage").show();
   
@@ -670,6 +887,7 @@ function nextPage(nextPage){
 
     $("#settingsPage").hide();
     $("#indexPage").show();
+    $(".homeSetBtn").show();
     $("#settingsModalCenter3").modal('hide')
     
 }else if(nextPage == "reason"){   
@@ -678,7 +896,8 @@ function nextPage(nextPage){
     $("#counterPage").show();
 }else if(nextPage == 'visterPage'){
     $("#others6Page").hide();
-    $("#reasonForVisitingPage").show();
+    $("#counterPage").show();
+    //$("#reasonForVisitingPage").show();
    
 }else if(nextPage == 'settings_nav'){
 
@@ -805,13 +1024,15 @@ function videocall(){
 //////////////reasonForVisiting
 function reasonForVisiting(){
     $("#counterPage").hide();
-    $("#reasonForVisitingPage").show();
-    $("#reasonForVisitingPageHeader").show();
+    $("#others6Page").show();
+    //$("#reasonForVisitingPage").show();
+    //$("#reasonForVisitingPageHeader").show();
 }
 
 function others6(){
 
-    $("#reasonForVisitingPage").hide();
+    //$("#reasonForVisitingPage").hide();
+   
     $("#others6Page").show();
     // $("#jQKeyboardContainer").css('position','relactive');
     // $("#jQKeyboardContainer").css('bottom','0px');
@@ -819,23 +1040,7 @@ function others6(){
 }
 
 function saveVisitData(){
-    alert(0)
-    // var data ={
-    //     "name": $("#visiter_name").val(),
-    //     "age": $("#visiter_age").val(),
-    //     "reason": $("#Visite_reason").val()
-    // }
 
-    // console.log(data);
-    // Swal.fire({
-    //     position: 'top-end',
-    //     type: 'success',
-    //     title: 'Successfully saved',
-    //     showConfirmButton: false,
-    //     timer: 1500
-    //   })
-   
-    //   })
 
 }
 /////////////   
@@ -875,16 +1080,28 @@ function toChnageTheme(t){
     localStorage.setItem('background_image',t);
   if( t == '1'){
     $(".background-image").css("background-image", "url('background-pattern4.png')");
+    $(".background-options").css("background-image", "url('background-pattern4.png')");
+    $(".hdfc-sprite").css("background-image", "url('hdfc-icons-sprite4.png')");
+    $(".navigation").css("background-image", "url('hdfc-icons-sprite_enter1.png')");
     // $("#radio6").attr('checked');
   }else if(t == '2'){
     localStorage.setItem('background_image',t);
     $(".background-image").css("background-image", "url('background-pattern.png')");
+    $(".background-options").css("background-image", "url('background-pattern.png')");
+    $(".hdfc-sprite").css("background-image", "url('hdfc-icons-sprite4_blue1.png')");
+    $(".navigation").css("background-image", "url('hdfc-icons-sprite_enter1_blue.png')");
   }else if(t == '3'){
     localStorage.setItem('background_image',t);
     $(".background-image").css("background-image", "url('background-pattern8.png')");
+    $(".background-options").css("background-image", "url('background-pattern8.png')");
+    $(".hdfc-sprite").css("background-image", "url('hdfc-icons-sprite4_green.png')");
+    $(".navigation").css("background-image", "url('hdfc-icons-sprite_enter1_green.png')");
   }else if(t == '4'){
     localStorage.setItem('background_image',t);
     $(".background-image").css("background-image", "url('background-pattern6.png')");
+    $(".background-options").css("background-image", "url('background-pattern6.png')");
+    $(".hdfc-sprite").css("background-image", "url('hdfc-icons-sprite4.png')");
+    $(".navigation").css("background-image", "url('hdfc-icons-sprite_enter1.png')");
   }
 
 
@@ -898,6 +1115,12 @@ function toChangeNavigation(){
 }
 function toChangeStatus(){
 
+  var mes = new ROSLIB.Message({
+      data : 'restart'
+  });
+    power.publish(mes);
+    console.log("shuting down")
+
 }
 function toAddImage(){
 
@@ -907,6 +1130,12 @@ function toAddImage(){
 ////power button
 function Power_Off_On(){
     
+    
+
+
+
+
+
 }
 function addNewUser(){
     var username = $("#username").val();
@@ -936,16 +1165,19 @@ function inCounterBanigation1(){
   var request = new ROSLIB.ServiceRequest({
     counter_no : 1
   });
+  // $(".counter1").hide();
 
-  document.getElementById("back_counter1").style.visibility = "hidden";
+  // document.getElementById("back_counter1").style.visibility = "hidden";
   document.getElementById("test34").style.visibility = "hidden";
   navigation.callService(request, function(result) {
     console.log('Result for service call on '
       + navigation.name
       + ': '
       + result.result);
+
       document.getElementById("test34").style.visibility = "visible";
-      document.getElementById("back_counter1").style.visibility = "visible";
+      // $(".counter1").show();
+      //document.getElementById("back_counter1").style.visibility = "visible";
 
     console.log('backIon')
       ui_refresh.publish(str);
@@ -984,16 +1216,17 @@ function inCounterBanigation2(){
     var request = new ROSLIB.ServiceRequest({
     counter_no : 2
   });
-document.getElementById("back_counter2").style.visibility = "hidden";
-  document.getElementById("test34").style.visibility = "hidden";
+    // $(".counter2").hide();
+// document.getElementById("back_counter2").style.visibility = "hidden";
+  document.getElementById("test35").style.visibility = "hidden";
   navigation.callService(request, function(result) {
     console.log('Result for service call on '
       + navigation.name
       + ': '
       + result.result);
-      document.getElementById("test34").style.visibility = "visible";
-      document.getElementById("back_counter2").style.visibility = "visible";
-
+      document.getElementById("test35").style.visibility = "visible";
+      //document.getElementById("back_counter2").style.visibility = "visible";
+      // $(".counter2").show();
     console.log('backIon')
       ui_refresh.publish(str);
       sleep(300);
@@ -1031,16 +1264,17 @@ function inCounterBanigation3(){
 
     counter_no : 3
   });
-document.getElementById("back_counter3").style.visibility = "hidden";
-  document.getElementById("test34").style.visibility = "hidden";
+ // $(".counter3").hide();
+//document.getElementById("back_counter3").style.visibility = "hidden";
+  document.getElementById("test36").style.visibility = "hidden";
   navigation.callService(request, function(result) {
     console.log('Result for service call on '
       + navigation.name
       + ': '
       + result.result);
-      document.getElementById("test34").style.visibility = "visible";
-      document.getElementById("back_counter3").style.visibility = "visible";
-
+      document.getElementById("test36").style.visibility = "visible";
+      //document.getElementById("back_counter3").style.visibility = "visible";
+      // $(".counter3").show();
     console.log('backIon')
       ui_refresh.publish(str);
       sleep(300);
@@ -1076,16 +1310,17 @@ function inCounterBanigation4(){
     var request = new ROSLIB.ServiceRequest({
     counter_no : 4
   });
-document.getElementById("back_counter4").style.visibility = "hidden";
-  document.getElementById("test34").style.visibility = "hidden";
+     // $(".counter4").hide();
+//document.getElementById("back_counter4").style.visibility = "hidden";
+  document.getElementById("test37").style.visibility = "hidden";
   navigation.callService(request, function(result) {
     console.log('Result for service call on '
       + navigation.name
       + ': '
       + result.result);
-      document.getElementById("test34").style.visibility = "visible";
-      document.getElementById("back_counter4").style.visibility = "visible";
-
+      document.getElementById("test37").style.visibility = "visible";
+      //document.getElementById("back_counter4").style.visibility = "visible";
+      // $(".counter4").show();
     console.log('backIon')
       ui_refresh.publish(str);
       sleep(300);
@@ -1121,16 +1356,17 @@ function inCounterBanigation5(){
     var request = new ROSLIB.ServiceRequest({
     counter_no : 5
   });
-document.getElementById("back_counter5").style.visibility = "hidden";
-  document.getElementById("test34").style.visibility = "hidden";
+     // $(".counter5").hide();
+//document.getElementById("back_counter5").style.visibility = "hidden";
+  document.getElementById("test38").style.visibility = "hidden";
   navigation.callService(request, function(result) {
     console.log('Result for service call on '
       + navigation.name
       + ': '
       + result.result);
-      document.getElementById("test34").style.visibility = "visible";
-      document.getElementById("back_counter5").style.visibility = "visible";
-
+      document.getElementById("test38").style.visibility = "visible";
+      //document.getElementById("back_counter5").style.visibility = "visible";
+       // $(".counter5").show();
     console.log('backIon')
       ui_refresh.publish(str);
       sleep(300);
@@ -1167,16 +1403,17 @@ function inCounterBanigation6(){
     var request = new ROSLIB.ServiceRequest({
     counter_no : 6
   });
-document.getElementById("back_counter6").style.visibility = "hidden";
-  document.getElementById("test34").style.visibility = "hidden";
+     // $(".counter6").hide();
+//document.getElementById("back_counter6").style.visibility = "hidden";
+  document.getElementById("test39").style.visibility = "hidden";
   navigation.callService(request, function(result) {
     console.log('Result for service call on '
       + navigation.name
       + ': '
       + result.result);
-      document.getElementById("test34").style.visibility = "visible";
-      document.getElementById("back_counter6").style.visibility = "visible";
-
+      document.getElementById("test39").style.visibility = "visible";
+      //document.getElementById("back_counter6").style.visibility = "visible";
+       // $(".counter6").show();
     console.log('backIon')
       ui_refresh.publish(str);
       sleep(300);
@@ -1231,22 +1468,14 @@ function others1(){
     
 }
 
-///////////////app buttons
-function leftBtn(){
-
-}
-function upBtn(){
-    
-}
-function downBtn(){
-    
-}
-function rightBtn(){
-    
-}
 /////power button
 function powerOff(){
     $('#powerbtnModal').modal('hide');
+     var mes = new ROSLIB.Message({
+      data : 'shutdown'
+  });
+    power.publish(mes);
+    console.log("shuting down")
 }
 ////////////////settings page ends 
 
@@ -1282,7 +1511,53 @@ function ClearPassLet(){
   $("#settingsPass").val('');
 }
 
+/////////////////reason for visit others
+function others1(){
+    
+}
 
+/////power button
+function powerOff(){
+    $('#powerbtnModal').modal('hide');
+     var mes = new ROSLIB.Message({
+      data : 'shutdown'
+  });
+    power.publish(mes);
+    console.log("shuting down")
+}
+////////////////settings page ends 
+
+///////////////////////password keyboard home page js 
+function showKeys(){
+    document.getElementById("keypad").style.visibility = "visible";
+}
+function addCodeH(key){
+    var code = $("#form3")[0].code;
+    if(code.value.length < 4){
+        code.value = code.value + key;
+    }
+    if(code.value.length == 4){
+        document.getElementById("messageH").style.display = "block";
+        // setTimeout(submitForm,1000);    
+    }
+}
+
+function emptyCode(){
+    $("#form3")[0].code.value = "";
+}
+function backLettersH(){
+
+  var passLetters = $("#settingsPassH").val();
+  var newPassLte = passLetters.substring(0, passLetters.length - 1);
+  if(newPassLte == ''){
+    $("#settingsPassH").val(' ');
+  }
+//   console.log(newPassLte.length)
+  $("#settingsPassH").val(newPassLte)
+}
+function ClearPassLetH(){
+  $("#settingsPassH").val('');
+}
 ///////////////////////password keyboard js  for update
 function showKeysUp(){
     document.getElementById("keypad1").style.visibility = "visible";
@@ -1293,7 +1568,7 @@ function addCodeUp(key){
         code1.value = code1.value + key;
     }
     if(code1.value.length == 4){
-        document.getElementById("message1").style.display = "block";
+        document.getElementById("messageH").style.display = "block";
         // setTimeout(submitForm,1000);    
     }
 }
@@ -1301,6 +1576,7 @@ function addCodeUp(key){
 function emptyCode(){
     $("#form1")[0].code.value = "";
     $("#form2")[0].code1.value = "";
+    $("#form3")[0].code1.value = "";
 }
 function backLettersUp(){
 
@@ -1323,7 +1599,28 @@ function allPageRefresh(){
 }
 
 function cameraFeed(){
-
+      console.log('camera_refresh')
+      ui_refresh.publish(str);
+      sleep(300);
+      ui_refresh.publish(str);
+      $("#indexPage").show();
+      $("#welcomePage").hide();
+      $("#settingsPage").hide();
+      $("#counterPage").hide();
+      $("#navigationPage").hide();
+      $("#speechPage").hide();
+      $("#videoPage").hide();
+      $("#navigationPage_counter1").hide();   
+      $("#navigationPage_counter2").hide(); 
+      $("#navigationPage_counter3").hide();
+      $("#navigationPage_counter4").hide();
+      $("#navigationPage_counter5").hide();
+      $("#navigationPage_counter6").hide();
+       ui_refresh.publish(str);
+      sleep(3000);
+      ui_refresh.publish(str);
+      sleep(3000);
+      ui_refresh.publish(str);
 }
 
 ////////////////////////face 

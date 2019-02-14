@@ -1342,16 +1342,16 @@ margin-top: -19px;
   margin-top: 3px !important;
 }
 .counter{
-  padding: 35px 0 30px 57px !important;
+  padding: 35px 0 30px 57px ;
   /* padding: 21px 0 30px 32px !important; */
-  font-size: 22px !important;
+  font-size: 22px ;
 }
 .otherscounter{
   /* padding: 27px 0 30px 26px !important; */
-  font-size: 21px !important;
+  font-size: 21px ;
 }
 .counter_reason{
-  padding: 20px 0 30px 57px !important;
+  padding: 20px 0 30px 57px ;
 }
 .enterBtn1{
   float: right;
