@@ -4,78 +4,80 @@
 <head lang="en">
   <meta charset="UTF-8" />
   <title>jqKeyboard Demo</title>
-  <link rel="stylesheet" href="jquery.keypad.css">
+  <!-- <link rel="stylesheet" href="jquery.keypad.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-  <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/gh/hawkgs/jqKeyboard/development/build/jqkeyboard.js"></script>
-  <script src="https://cdn.jsdelivr.net/gh/hawkgs/jqKeyboard/layouts/jqk.layout.en-bg.js"></script>
-  <script src="https://swc.cdn.skype.com/sdk/v1/sdk.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script> -->
+  <!-- <script src="https://cdn.jsdelivr.net/gh/hawkgs/jqKeyboard/development/build/jqkeyboard.js"></script> -->
 
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 <style>
 
 </style>
 <script>
-  
+ 
 
 </script>
 
 </head>
 
 <body >
-        <div style="border: solid 1px #ccc; padding: 10px; text-align: center;">
-                <video id="video" width="320" controls="true">
-                  
-                    <source src="test.mp4"><!-- WebKit -->
-                    Your browser does not support HTML5 video tag. Please download FireFox 3.5 or higher.
-                </video><br/>
-                <button onclick="shoot()" style="width: 64px;border: solid 2px #ccc;">Capture</button><br/>
-                <div id="output" style="display: inline-block; top: 4px; position: relative ;border: dotted 1px #ccc; padding: 2px;"></div>
-            </div>
+    <button type="button" class="btn btn-primary" onclick="start()">start</button>
+    <button type="button" class="btn btn-primary" onclick="Stop()">Stop</button>  
+    <button type="button" class="btn btn-primary" onclick="Reset()">Reset</button>  
+    <button type="button" class="btn btn-primary" onclick="Click()">Click</button>     
 
 
 <script>
-    var videoId = 'video';
-var scaleFactor = 0.25;
-var snapshots = [];
- 
-/**
- * Captures a image frame from the provided video element.
- *
- * @param {Video} video HTML5 video element from where the image frame will be captured.
- * @param {Number} scaleFactor Factor to scale the canvas element that will be return. This is an optional parameter.
- *
- * @return {Canvas}
- */
-function capture(video, scaleFactor) {
-    if(scaleFactor == null){
-        scaleFactor = 1;
+   localStorage.setItem('inte','start');
+    function start() {
+        
+        var time = localStorage.getItem('inte');
+        if(time == 'start'){
+            begin = setInterval(countdown, 1000);
+        }else{
+            console.log('stop');
+            clearInterval(begin)
+        }
+
     }
-    var w = video.videoWidth * scaleFactor;
-    var h = video.videoHeight * scaleFactor;
-    var canvas = document.createElement('canvas');
-        canvas.width  = w;
-        canvas.height = h;
-    var ctx = canvas.getContext('2d');
-        ctx.drawImage(video, 0, 0, w, h);
-    return canvas;
-} 
- 
-/**
- * Invokes the <code>capture</code> function and attaches the canvas element to the DOM.
- */
-function shoot(){
-    var video  = document.getElementById(videoId);
-    var output = document.getElementById('output');
-    var canvas = capture(video, scaleFactor);
-        canvas.onclick = function(){
-            window.open(this.toDataURL());
-        };
-    snapshots.unshift(canvas);
-    output.innerHTML = '';
-    for(var i=0; i<4; i++){
-        output.appendChild(snapshots[i]);
+
+
+    function Reset(){
+        start();
+        localStorage.setItem('inte','start');
     }
-}
+
+    function countdown(){
+        var time = localStorage.getItem('inte');
+        if(time == 'start'){
+            console.log('countdown');
+        }
+       
+    }
+
+
+
+    function Stop(){
+        start();
+        localStorage.setItem('inte','stop');
+    }
+
+ 
+
+
+//  var int1;
+// var func = function () {
+//     // do stuff
+
+//     if(){
+//         clearInterval(int1); 
+//         setTimeout(func, 60000);
+//     }
+// };
+// int1 = setInterval(func, 1000);
 </script>
 </body>
 </html>

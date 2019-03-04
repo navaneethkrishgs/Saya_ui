@@ -1,8 +1,7 @@
 $(document).ready(function(){
 
-
-
-   
+    var timesettings;
+    
 
     // $(".counter1").hide();
     $("#User").text('Test User');   /////for welcome page
@@ -103,6 +102,7 @@ if( bi == '1'){
     $(".background-options").css("background-image", "url('background-pattern4.png')");
     $(".hdfc-sprite").css("background-image", "url('hdfc-icons-sprite4.png')");
     $(".navigation").css("background-image", "url('hdfc-icons-sprite_enter1.png')");
+    $("#loader").css("border-top","16px solid #FF9800");
     
   }else if(bi == '2'){
     $("#radio6").attr( 'checked', false )
@@ -114,6 +114,7 @@ if( bi == '1'){
     $(".background-options").css("background-image", "url('background-pattern.png')");
     $(".hdfc-sprite").css("background-image", "url('hdfc-icons-sprite4_blue1.png')");
     $(".navigation").css("background-image", "url('hdfc-icons-sprite_enter1_blue.png')");
+    $("#loader").css("border-top","16px solid #03A9F4");
   }else if(bi == '3'){
     $("#radio6").attr( 'checked', false )
     $("#radio7").attr( 'checked', false )
@@ -123,6 +124,7 @@ if( bi == '1'){
     $(".background-options").css("background-image", "url('background-pattern8.png')");
     $(".hdfc-sprite").css("background-image", "url('hdfc-icons-sprite4_green.png')");
     $(".navigation").css("background-image", "url('hdfc-icons-sprite_enter1_green.png')");
+    $("#loader").css("border-top","16px solid #8BC34A");
   }else if(bi == '4'){
     $("#radio6").attr( 'checked', false )
     $("#radio7").attr( 'checked', false )
@@ -132,10 +134,14 @@ if( bi == '1'){
     $(".background-options").css("background-image", "url('background-pattern6.png')");
     $(".hdfc-sprite").css("background-image", "url('hdfc-icons-sprite4.png')");
     $(".navigation").css("background-image", "url('hdfc-icons-sprite_enter1.png')");
+    $("#loader").css("border-top","16px solid #E91E63");
   }
 
 
 ///////////////hide pages//////
+
+$("#loadingPage").hide();
+$("#indexPage").hide();
 $("#welcomePage").hide();
 
 $("#settingsPage").hide(); $("#settings_navigation_Page").hide();
@@ -680,6 +686,9 @@ $('#VideoCallPageDisable').click(function(){
     }
 });
 
+
+///////////////settings
+$(".settingsPageBackBtn").hide();
 });
 
 
@@ -689,11 +698,11 @@ $('#VideoCallPageDisable').click(function(){
 ///////for settings page 
 
 function check_user(pageSettings){
-
+    
     $('#settingsModalCenter').modal('hide');
     // $(".indexpageClass").removeAttr('id');
  if(pageSettings == 'welcome'){
-
+    Stop();
     val =  $("#settingsPass").val();
     val1 = $("#settingsPassH").val();
     console.log(val1);
@@ -709,7 +718,9 @@ function check_user(pageSettings){
     var savedPassword = (snapshot.val() && snapshot.val().password) || 'Anonymous';
     console.log('saved password'+ ' '+ savedPassword);
     var enteredPassword =  $("#settingsPass").val();
+   
     if(savedPassword == enteredPassword){
+
         $("#settingsPass").val('');
         $("#settingsPass").val('');
         $("#indexPage").hide();
@@ -717,6 +728,8 @@ function check_user(pageSettings){
         $("#body").removeClass("modal-open");
         $(".modal-backdrop  ").addClass('modal');
         $("#message").hide();
+       
+
     }else{
         $("#message").hide();
         $("#settingsPass").val('');
@@ -755,11 +768,11 @@ function check_user(pageSettings){
           $("#body").removeClass("modal-open");
           $(".modal-backdrop  ").addClass('modal');
           $("#messageH").hide();
-          $(".homeSetBtn").hide();
+        //   $(".homeSetBtn").hide();
           $("#counterPage").hide();
       }else{
           $("#messageH").hide();
-          $(".homeSetBtn").hide();
+        //   $(".homeSetBtn").hide();
           $("#settingsPassH").val('');
         //   $("#counterPage").hide();
           Swal.fire({
@@ -815,10 +828,13 @@ function sleep(milliseconds) {
 ///////for next page 
 function nextPage(nextPage){
   if(nextPage == "welcome"){
+    // startTimer();
       $("#indexPage").hide();  
       $("#welcomePage").show();
-      setTimeout(function(){ $("#welcomePage").hide(); $("#counterPage").show(); },2000);
+      setTimeout(function(){ start();  $("#welcomePage").hide(); $(".settingsPageBackBtn1").hide();$(".settingsPageBackBtn").show(); $("#counterPage").show(); $("#settingsBtn3").show() },2000);
   }else if(nextPage == "speech"){
+  
+    start();
     $(".skype-chat").hide(); /////skype hide
       var speech_value = new ROSLIB.Message({
       data : 'false'
@@ -834,6 +850,8 @@ function nextPage(nextPage){
      
       
   }else if(nextPage == "main"){
+    start();
+
     $(".skype-chat").hide(); /////skype hide
       
      $("#navigationPage").hide();
@@ -860,8 +878,10 @@ function nextPage(nextPage){
       
   
  }else if(nextPage == "back_home"){
+    
 
-      console.log('backIon')
+      console.log('backIon');
+      Stop();
       ui_refresh.publish(str);
       sleep(300);
       ui_refresh.publish(str);
@@ -883,18 +903,31 @@ function nextPage(nextPage){
       ui_refresh.publish(str);
       sleep(3000);
       ui_refresh.publish(str);
+    //   $("#back_home_id").removeAttr('onclick');
  } else if(nextPage == "settings"){
+    Reset();
+    $("#settingsPage").hide();
+    $("#counterPage").show();
+    // $("#indexPage").show();
+    // $(".homeSetBtn").show();
+    $("#settingsModalCenter3").modal('hide')
+    
+} else if(nextPage == "settings1"){
 
     $("#settingsPage").hide();
     $("#indexPage").show();
+    // $("#settingsBtn3").show()
+    // $("#indexPage").show();
     $(".homeSetBtn").show();
     $("#settingsModalCenter3").modal('hide')
     
-}else if(nextPage == "reason"){   
+}
+else if(nextPage == "reason"){
 
     $("#reasonForVisitingPage").hide();
     $("#counterPage").show();
 }else if(nextPage == 'visterPage'){
+    start();
     $("#others6Page").hide();
     $("#counterPage").show();
     //$("#reasonForVisitingPage").show();
@@ -1003,6 +1036,7 @@ function navigation(){
 // speech
 
 function speech(){
+    Stop();
   var speech_value = new ROSLIB.Message({
       data : 'true'
   });
@@ -1014,6 +1048,7 @@ function speech(){
 
 // videocall
 function videocall(){
+    Stop();
     $(".skype-chat").show(); //skype show
     $("#counterPage").hide();
     $("#videoPage").show();
@@ -1023,6 +1058,7 @@ function videocall(){
 
 //////////////reasonForVisiting
 function reasonForVisiting(){
+    Stop();
     $("#counterPage").hide();
     $("#others6Page").show();
     //$("#reasonForVisitingPage").show();
@@ -1083,6 +1119,7 @@ function toChnageTheme(t){
     $(".background-options").css("background-image", "url('background-pattern4.png')");
     $(".hdfc-sprite").css("background-image", "url('hdfc-icons-sprite4.png')");
     $(".navigation").css("background-image", "url('hdfc-icons-sprite_enter1.png')");
+    $("#loader").css("border-top","16px solid #FF9800");
     // $("#radio6").attr('checked');
   }else if(t == '2'){
     localStorage.setItem('background_image',t);
@@ -1090,18 +1127,21 @@ function toChnageTheme(t){
     $(".background-options").css("background-image", "url('background-pattern.png')");
     $(".hdfc-sprite").css("background-image", "url('hdfc-icons-sprite4_blue1.png')");
     $(".navigation").css("background-image", "url('hdfc-icons-sprite_enter1_blue.png')");
+    $("#loader").css("border-top","16px solid #03A9F4");
   }else if(t == '3'){
     localStorage.setItem('background_image',t);
     $(".background-image").css("background-image", "url('background-pattern8.png')");
     $(".background-options").css("background-image", "url('background-pattern8.png')");
     $(".hdfc-sprite").css("background-image", "url('hdfc-icons-sprite4_green.png')");
     $(".navigation").css("background-image", "url('hdfc-icons-sprite_enter1_green.png')");
+    $("#loader").css("border-top","16px solid #8BC34A");
   }else if(t == '4'){
     localStorage.setItem('background_image',t);
     $(".background-image").css("background-image", "url('background-pattern6.png')");
     $(".background-options").css("background-image", "url('background-pattern6.png')");
     $(".hdfc-sprite").css("background-image", "url('hdfc-icons-sprite4.png')");
     $(".navigation").css("background-image", "url('hdfc-icons-sprite_enter1.png')");
+    $("#loader").css("border-top","16px solid #E91E63");
   }
 
 
@@ -1496,6 +1536,7 @@ function addCode(key){
 
 function emptyCode(){
     $("#form1")[0].code.value = "";
+    
 }
 function backLetters(){
 
@@ -1627,6 +1668,21 @@ function cameraFeed(){
 function addFace(){
     $("#canvasId").remove();
     $("#faceText").text('New Snapshot ')
+}
+
+function Addons1() {
+    timesettings=  setInterval(CheckIdleTime, 100);
+}
+
+function Addons() {
+    
+    clearInterval(timesettings);
+}
+function letsStart() {
+
+    $("#startingPage").hide();
+    $("#loadingPage").show();
+    setTimeout(function(){ $("#loadingPage").hide(); $("#indexPage").show();  },3000);
 }
 
 
