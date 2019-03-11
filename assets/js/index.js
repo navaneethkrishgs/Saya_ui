@@ -1479,9 +1479,15 @@ function inCounterBanigation6(){
   });
 
 }
-
-function changeLang(){
-   
+///////////////To English
+function changeToEnglish(){
+    document.getElementById('langChange').setAttribute('onchange','changeToHindi()');
+    console.log('To English');
+}
+///////////////To Hindi
+function changeToHindi(){
+    document.getElementById('langChange').setAttribute('onchange','changeToEnglish()');
+    console.log('To Hindi');
 }
 function autonomous(){
 

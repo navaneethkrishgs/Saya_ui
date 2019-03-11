@@ -1137,8 +1137,11 @@ body main #startCaption {
   to{ bottom:0; opacity:1 }
 }
 #loaderText {
-  /* text-align: center; */
+  text-align: center;
   font-family: good-times;
   font-weight: normal;
   color: #f3f3f3;
+  position: absolute;
+  left: 41%;
+  top: 28%;
 }
