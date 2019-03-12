@@ -1045,6 +1045,17 @@ function speech(){
     $("#speechPage").show();
     $("#navigationPage").hide();
 }
+function speechChange(){
+    Stop();
+  var speech_value = new ROSLIB.Message({
+      data : 'true'
+  });
+  speech_state.publish(speech_value);
+    $("#counterPage").hide();
+    $("#speechPage").show();
+    $("#navigationPage").hide();
+}
+
 
 // videocall
 function videocall(){
@@ -1482,11 +1493,13 @@ function inCounterBanigation6(){
 ///////////////To English
 function changeToEnglish(){
     document.getElementById('langChange').setAttribute('onchange','changeToHindi()');
+    document.getElementById('choice_demat').setAttribute('onclick','speechChange()');
     console.log('To English');
 }
 ///////////////To Hindi
 function changeToHindi(){
     document.getElementById('langChange').setAttribute('onchange','changeToEnglish()');
+    document.getElementById('choice_demat').setAttribute('onclick','speech()');
     console.log('To Hindi');
 }
 function autonomous(){
