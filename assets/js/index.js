@@ -1636,7 +1636,7 @@ function addCodeUp(key){
 function emptyCode(){
     $("#form1")[0].code.value = "";
     $("#form2")[0].code1.value = "";
-    $("#form3")[0].code1.value = "";
+    // $("#form3")[0].code1.value = "";
 }
 function backLettersUp(){
 

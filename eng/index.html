@@ -47,12 +47,12 @@
 
 
 <link rel="stylesheet" type="text/css" href="jquery.onscreenKeyboard.css" />
+<!-- <script src="https://www.gstatic.com/firebasejs/5.8.2/firebase.js"></script> -->
+<!-- <script src="https://swc.cdn.skype.com/sdk/v1/sdk.min.js"></script> -->
 
-<script src="https://swc.cdn.skype.com/sdk/v1/sdk.min.js"></script>
 
 
 
-<script src="https://www.gstatic.com/firebasejs/5.8.2/firebase.js"></script>
 <script>
   
 </script>
@@ -792,8 +792,40 @@
         <div class="container-choice">
 			<h2 id="choiceText">Tap on the Option of your Choice</h2>
 			<span class="hr-line"></span>
-			<div class="content">
-				<div class="column-two" id="choice_cash_withdrawal" onclick="navigation();">
+			<div class="content" id="contentId">
+                <div class="container">
+                    <div class="row">
+                    <div class="column-two" id="choice_cash_withdrawal" onclick="navigation();">
+                        <i class="icon-options hdfc-sprite one"></i>
+                        <div class="option-bg hdfc-sprite" onclick="demo();">
+                            <div id="naviIcon"><img  id="naviIconImag" src="navigationIcon.png"></div>
+                            <p class="counter navigatioS" id="navigatio">Sections</p>
+                        </div>
+                    </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="column-two" id="choice_cash_deposit" onclick="reasonForVisiting()">
+                            <i class="icon-options hdfc-sprite two"></i>
+                            <div class="option-bg hdfc-sprite"  >
+                                <div id="reasonIcon"><img  id="reasonIconImag" src="reason.png"></div>
+                                <p class="counter_reason" id="reasonTex">Visiting Reasons</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="column-two" id="choice_fixed_deposit" onclick="videocall();">
+
+                            <i class="icon-options hdfc-sprite four"></i>
+                            <div class="option-bg hdfc-sprite">
+                                <div id="videoIcon"><img  id="videoIconImag" src="videocalling.png"></div>
+                                <p class="counter" id="videoTex">Call Incharge</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+				<!-- <div class="column-two" id="choice_cash_withdrawal" onclick="navigation();">
 					<i class="icon-options hdfc-sprite one"></i>
 					<div class="option-bg hdfc-sprite" onclick="demo();">
                        <div id="naviIcon"><img  id="naviIconImag" src="navigationIcon.png"></div>
@@ -837,7 +869,7 @@
 						<p class="otherscounter" id="otherText2">Addons1</p>
 					</div>
 				
-				</div>
+				</div> -->
 			</div>
 		</div>
 
@@ -1352,7 +1384,8 @@
                 
                 <div id="container">
                
-                        <div class="skype-button bubble" data-contact-id="live:nirmalthomas"></div>
+                        <!-- <div class="skype-button bubble" data-contact-id="live:nirmalthomas"></div> -->
+                        <div class="skype-button bubble" 	data-contact-id="live:nirmalthomas"></div>
                       
                      <h1 id="chatTextBtn">Click To Start</h1>
                 </div>
@@ -1515,7 +1548,7 @@
                 <div class="enterBtn1" id="enterBtn" >
                
                  <div class="centered1"> 
-                     <a href="#" onclick="nextPage('visterPage');"><li><i  id="nextPage" class="fa fa-arrow-left others6PageBackBtn" aria-hidden="true">&nbsp;Back</i></a>
+                        <a href="#" onclick="nextPage('visterPage');"><li><i  id="nextPage" class="fa fa-arrow-left others6PageBackBtn" aria-hidden="true">&nbsp;Back</i></a>
                 </div>
                  </div> 
                 
@@ -1524,6 +1557,7 @@
 <!-- end others6Page-->
 
 <script type="text/javascript" src="../assets/js/jquery-3.3.1.min.js"></script>
+<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> -->
     
 <script src="https://unpkg.com/popper.js/dist/umd/popper.min.js"></script>
 
@@ -1541,6 +1575,8 @@
 <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/7.33.1/sweetalert2.min.js"></script>
 
+<script src="https://www.gstatic.com/firebasejs/5.8.2/firebase.js"></script>
+<script src="https://swc.cdn.skype.com/sdk/v1/sdk.min.js"></script>
 
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/caret/1.0.0/jquery.caret.min.js"></script>

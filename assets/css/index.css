@@ -672,7 +672,10 @@ body main .container-choice1 {
 #naviIcon{
   position: absolute;
   top: 17%;
-  left: 3%;
+  left: 27%;
+}
+#contentId{
+  width: 1499px !important;
 }
 #naviIconImag{
   width: 125px;
@@ -687,7 +690,7 @@ body main .container-choice1 {
 }
 #videoIcon{
   position: absolute;
-  left: 6%;
+  left: 30%;
   top: 79%;
 }
 #videoIconImag{
@@ -695,8 +698,8 @@ body main .container-choice1 {
 }
 #reasonIcon{
   position: absolute;
-  left: 54%;
-  top: 23%;
+  left: 29%;
+  top: 50%;
 }
 #reasonIconImag{
   width: 84px;
