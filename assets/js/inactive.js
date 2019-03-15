@@ -40,6 +40,10 @@ localStorage.setItem('inte','start');
             console.log(_idleSecondsCounter);
             if(_idleSecondsCounter >= 12000){
             console.log('time out');
+            var speech_value = new ROSLIB.Message({
+               data : 'true'
+             });
+            ui_refresh.publish(str);
             Stop();
             $("#indexPage").show();
             $("#welcomePage").hide();

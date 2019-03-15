@@ -51,7 +51,7 @@ var listener = new ROSLIB.Topic({
     $("#indexPage").hide();  
       document.getElementById('User').innerHTML = message.data;
       $("#welcomePage").show();
-      setTimeout(function(){ $("#welcomePage").hide(); $("#counterPage").show() },7000);
+      setTimeout(function(){ start();  $("#welcomePage").hide(); $("#counterPage").show() },7000);
     console.log('Received message on ' + listener.name + ': ' + message.data);
 
     // listener.unsubscribe();
