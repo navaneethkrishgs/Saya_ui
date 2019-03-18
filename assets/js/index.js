@@ -51,7 +51,7 @@ $(".setModal").click(function(){
         
     
         $.ajax({
-            url: 'https://script.google.com/macros/s/AKfycbzlUuVZc08ThqioH2cFtHbKE07er36DKc048wE0GWi80koyD7WS/exec',
+            url: 'https://script.google.com/macros/s/AKfycbwwZclHATUbIawJlDoUTkf6_0l07yxx2SkqZ427fvFi5eOi2es/exec',
             type: 'GET',
             data: formData,
             // async: false,
@@ -964,8 +964,7 @@ else if(nextPage == 'settings_nav_joystick_next'){
       });
       joystick_state.publish(data_value);
       // keyboard_state.publish(data_value);
-    // $("#settings_navigation_Page").show();
-     $("#settingsPage").show(); 
+    $("#settings_navigation_Page").show();
     $("#settings_Nav_App_Page").hide();
     $("#settings_Nav_Joystick_Page").hide();
     $("#settings_Nav_Keyboard_Page").hide();
@@ -1206,7 +1205,7 @@ function addNewUser(){
 
 function inCounterBanigation1(){
    console.log('1 is clicked');
-  Stop();
+
   var navigation = new ROSLIB.Service({
     ros : ros,
     name : '/counter_no',
@@ -1259,7 +1258,7 @@ function inCounterBanigation1(){
 function inCounterBanigation2(){
 
  console.log('2 is clicked');
-Stop();
+
   var navigation = new ROSLIB.Service({
     ros : ros,
     name : '/counter_no',
@@ -1306,7 +1305,7 @@ Stop();
 }
 function inCounterBanigation3(){
   console.log('3 is clicked');
-Stop();
+
   var navigation = new ROSLIB.Service({
     ros : ros,
     name : '/counter_no',
@@ -1353,7 +1352,7 @@ Stop();
 }
 function inCounterBanigation4(){
   console.log('4 is clicked');
-Stop();
+
   var navigation = new ROSLIB.Service({
     ros : ros,
     name : '/counter_no',
@@ -1399,7 +1398,7 @@ Stop();
 }
 function inCounterBanigation5(){
   console.log('5 is clicked');
-Stop();
+
   var navigation = new ROSLIB.Service({
     ros : ros,
     name : '/counter_no',
@@ -1446,7 +1445,7 @@ Stop();
 }
 function inCounterBanigation6(){
   console.log('6 is clicked');
-Stop();
+
   var navigation = new ROSLIB.Service({
     ros : ros,
     name : '/counter_no',
@@ -1512,16 +1511,12 @@ function app(){
     $("#settings_Nav_App_Page").show();
 }
 function joystick(){
-    console.log('joystick')
   var data_value = new ROSLIB.Message({
       data : 'true'
   });
   joystick_state.publish(data_value);
-    // $("#settings_navigation_Page").hide();
+    $("#settings_navigation_Page").hide();
     $("#settings_Nav_Joystick_Page").show();
-
-    $("#settingsPage").hide(); 
-    // $("#settings_navigation_Page").show();
 }
 function keyboard(){
     $("#settings_navigation_Page").hide();
@@ -1703,7 +1698,7 @@ function Addons() {
     clearInterval(timesettings);
 }
 function letsStart() {
-    ui_refresh.publish(str);
+
     $("#startingPage").hide();
     $("#loadingPage").show();
     setTimeout(function(){ $("#loadingPage").hide(); $("#indexPage").show();  },3000);
